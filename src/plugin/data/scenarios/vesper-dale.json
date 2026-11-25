@@ -117,8 +117,7 @@
       "ECONOMY"
     ],
     "reason_codes": [
-      "CREATIVE_TICKETING",
-      "LOWEST_FARE"
+      "CREATIVE_TICKETING"
     ],
     "approvers": [
       "IMMEDIATE_SUPERVISOR",

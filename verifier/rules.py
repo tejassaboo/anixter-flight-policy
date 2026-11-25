@@ -411,7 +411,9 @@ def creative(trip, offers):
     low = lowest(trip, route)
     if not beyond or min(offer.fare_cents for offer in beyond) >= low[0].fare_cents:
         raise ValueError("ticketing beyond is modelled only when it is cheaper and connects at the destination")
-    return answer(Decision.BOOK, low, [ReasonCode.CREATIVE_TICKETING, ReasonCode.LOWEST_FARE], TRIP_OK,
+    # The ticket asked for is declined: the reason says why (task instructions). The ground is the ban of lines
+    # 346-348, not the lowest-fare rule (the hidden-city fare is the cheaper one), so LOWEST_FARE is not accepted.
+    return answer(Decision.BOOK, low, [ReasonCode.CREATIVE_TICKETING], TRIP_OK,
                   [Clause.CREATIVE_TICKETING],
                   f"Lines 346-348: no ticket to {trip.requested_ticket_to} to get off at {destination}; book the "
                   f"lowest fare to {destination} ({low[0].fare_cents} cents).")

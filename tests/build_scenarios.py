@@ -520,7 +520,7 @@ scenario(
      search("beyond", "ORD", "SLC", "2027-01-14",
             {"ua-via": fl("UA", "09:10", [130, 95], ["DEN"], [70])},
             [of("ua-beyond", "ua-via", "ECONOMY", 17100)])],
-    expected("BOOK", ["ua-denver"], ["ECONOMY"], ["CREATIVE_TICKETING", "LOWEST_FARE"], TRIP_OK,
+    expected("BOOK", ["ua-denver"], ["ECONOMY"], ["CREATIVE_TICKETING"], TRIP_OK,
              ["CREATIVE_TICKETING"]),
     [CREATIVE],
     "'Hidden-city' is the handbook's 'ticketing beyond' (347-348): not allowed; the lowest fare to Denver, where "

@@ -49,3 +49,18 @@ the answers were wrong only on the approver.
 `world.py` is unchanged. The `tools/world_diff.py --plugins` run against HEAD shows that pinned searches are
 identical. `get_trip` differs only in the request of vesper-dale and zinnia-loch, and the answer keys differ as
 listed above.
+
+## Declined requests (lead's decision after the review, template APPROVER_REVIEW.md)
+
+The booking task's instructions now end: "When you book something other than what the traveller asked for, the
+reason code gives why their request is declined." Accept sets follow it:
+
+- vesper-dale (hidden-city fare) no longer accepts `LOWEST_FARE`: the ticket asked for is the cheaper one, and
+  what declines it is the ban of lines 346-348, so `CREATIVE_TICKETING` only. The paid run gave that code.
+- zinnia-loch (United for the miles) keeps `LOWEST_FARE` beside `LOYALTY_PROGRAM_PREFERENCE`: lines 107-108
+  decline it because United's fare is higher.
+- The other bookings that decline a request (dover-kiln, hollow-pike, yarrow-tarn, pebble-cove, sable-heath,
+  umber-wold, kettle-moor, mossy-weir, onyx-grove) never accepted `LOWEST_FARE`.
+- Untouched, nothing asked for is declined: aspen-knoll, birch-lagoon, flint-marsh, garnet-rill, walnut-spur.
+
+`MAX_PASS_ALWAYS_LOWEST` stays 5 of 32 (measured).

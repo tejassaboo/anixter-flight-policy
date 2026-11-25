@@ -46,7 +46,8 @@ ID_CATEGORY_ENUMS = [contract.Passenger, contract.Purpose, contract.ExtraDays, c
 # one that always books the cheapest seat (with the right section). Set to what each actually passes (README).
 MAX_PASS_ALWAYS_FLAG = 3
 MAX_PASS_ALWAYS_LOWEST = 5  # NONE is accepted on every BOOK (sync 4'): birch-lagoon, flint-marsh, garnet-rill,
-# walnut-spur, zinnia-loch
+# walnut-spur, zinnia-loch (zinnia-loch declines the airline on the lowest-fare rule itself, lines 107-108,
+# so LOWEST_FARE stays there; no other booking that declines a request accepts it)
 
 # Hand-built duration cases beyond the automatic both-sides tests: (rule, outbound scheduled minutes per
 # flight, layovers, expected True / False / None for unclear). coach-flight is per flight, with connections
