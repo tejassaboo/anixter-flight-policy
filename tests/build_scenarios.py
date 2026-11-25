@@ -165,6 +165,10 @@ SENIOR = ["EXECUTIVE_VP", "SENIOR_EXECUTIVE"]
 MANAGER = ["IMMEDIATE_SUPERVISOR", "MANAGER"]
 LOW_CLAUSES = ["CLASS_OF_SERVICE", "LOWEST_LOGICAL_AIRFARE", "NON_REFUNDABLE_TICKETS"]
 SIGN_CLAUSES = ["CLASS_OF_SERVICE", "INTRODUCTION", "SENIOR_EXECUTIVE_APPROVAL"]
+# A non-employee's ticket with a business purpose turns on a senior executive's sign-off: the companion rule
+# (452-457), the exception rule of Non-Reimbursable Expenses (127, 140), and the senior-executive definitions
+# (57-59, 165-166), as for a business-cabin sign-off.
+COMPANION_CLAUSES = ["COMPANION_TRAVEL", "INTRODUCTION", "NON_REIMBURSABLE", "SENIOR_EXECUTIVE_APPROVAL"]
 PERSONAL_CLAUSES = ["COMBINED_TRAVEL", "INTRODUCTION", "POLICY_OVERVIEW"]
 S = []
 
@@ -180,6 +184,8 @@ def scenario(id, category, overlays, request, trip_, searches, exp, must_keep, n
 
 
 SUP = "verbal OK from the traveller's immediate supervisor"
+# A non-employee has no supervisor: the verbal OK on file is for the employee's own trip.
+COMPANION_SUP = "verbal OK from Daniel Park's immediate supervisor, for Daniel Park's own trip"
 
 # ============================== easy ==============================
 scenario(
@@ -431,13 +437,14 @@ scenario(
     twin_of="pebble-cove", twin_fact="leaves from Vancouver (Canada) or Seattle (U.S.)")
 
 
-def vancouver(name, category, overlays, request, traveller, approvals, customer, exp, must_keep, notes, **extra):
+def vancouver(name, category, overlays, request, traveller, approvals, customer, exp, must_keep, notes,
+              purpose=("Integration planning at the Vancouver branch", "INTERNAL_MEETING"), **extra):
     who = traveller or {"traveller_name": "Nora Feld", "traveller_title": "Director, Canadian Integration",
                         "traveller_reports_to": "Vice President, Corporate Development"}
     scenario(
         name, category, overlays, request,
         trip(**who, origin="JFK", destination="YVR", travel_date="2027-02-03", booking_date="2027-01-22",
-             purpose="Integration planning at the Vancouver branch", purpose_kind="INTERNAL_MEETING",
+             purpose=purpose[0], purpose_kind=purpose[1],
              trip_authorized_by=SUP, requested_cabin="BUSINESS", customer_cabin=customer, approvals=approvals,
              notes=[ORG] + (["The customer, Coastal Fiber's CIO, has booked business on the Air Canada flight."]
                             if customer == "BUSINESS" else [])),
@@ -478,7 +485,8 @@ vancouver(
     expected("BOOK", ["ac-business"], ["BUSINESS"], ["SAME_CLASS_AS_CUSTOMER"], TRIP_OK, ["CLASS_OF_SERVICE"]),
     [INSTANCES, INTL, CUSTOMER],
     "International and over five hours (350), so 302-303 do not force coach; U.S. to Canada does not qualify "
-    "under 307-308, but the customer instance (311) does: business. Flag twin of gorse-inlet.")
+    "under 307-308, but the customer instance (311) does: business. Flag twin of gorse-inlet.",
+    purpose=("Integration planning with the customer Coastal Fiber in Vancouver", "CUSTOMER_MEETING"))
 
 # ============================== hidden clause ==============================
 vancouver(
@@ -504,7 +512,7 @@ scenario(
     [search("denver", "ORD", "DEN", "2027-01-14", {"ua": fl("UA", "09:10"), "wn": fl("WN", "13:25")},
             [of("ua-denver", "ua", "ECONOMY", 26800), of("wn-denver", "wn", "ECONOMY", 28900)]),
      search("beyond", "ORD", "SLC", "2027-01-14",
-            {"ua-via": fl("UA", "09:10", [155, 95], ["DEN"], [70])},
+            {"ua-via": fl("UA", "09:10", [130, 95], ["DEN"], [70])},
             [of("ua-beyond", "ua-via", "ECONOMY", 17100)])],
     expected("BOOK", ["ua-denver"], ["ECONOMY"], ["CREATIVE_TICKETING", "LOWEST_FARE"], TRIP_OK,
              ["CREATIVE_TICKETING"]),
@@ -516,7 +524,7 @@ COMPANION_TRIP = {
     "traveller_name": "Elena Park", "traveller_title": "Spouse of the employee Daniel Park", "passenger": "ACCOMPANYING_NON_EMPLOYEE",
     "accompanies": "Daniel Park, Vice President, Channel Sales", "origin": "ORD", "destination": "LAS",
     "travel_date": "2027-02-22", "booking_date": "2027-01-25", "purpose": "Anixter partner conference in Las Vegas",
-    "purpose_kind": "TRADE_SHOW", "trip_authorized_by": SUP}
+    "purpose_kind": "TRADE_SHOW", "trip_authorized_by": COMPANION_SUP}
 REASON = ("Hosts the partners' spouses' program at the partner conference, as the conference plan requires (plan "
           "on file).")
 
@@ -532,10 +540,11 @@ scenario(
     "walnut-spur", "hidden_clause", ["multi_traveller", "outside_air_section"],
     "Please book my wife Elena to Las Vegas on February 22 for the partner conference. She's "
     "running the partners' spouses' program; Marcus Hale approved it in writing.",
-    trip(**COMPANION_TRIP, non_employee_reason=REASON, approvals=[sign(EVP, "NON_EMPLOYEE_TICKET", "2027-01-18")]),
+    trip(**COMPANION_TRIP, non_employee_reason=REASON, approvals=[sign(EVP, "NON_EMPLOYEE_TICKET", "2027-01-18")],
+         notes=["Marcus Hale's signed approval names Elena Park and gives the reason above for her to come."]),
     companion_searches(),
     expected("BOOK", ["wn-economy"], ["ECONOMY"], ["LOWEST_FARE", "SENIOR_EXECUTIVE_APPROVED"], SENIOR,
-             ["COMPANION_TRAVEL"]),
+             COMPANION_CLAUSES),
     [COMPANION, LOWEST, SENIOR_DEF],
     "A documented business purpose pre-approved by an Executive Vice President reporting to the CEO (452-457): "
     "the ticket can be issued, at the lowest fare. Flag twin of heron-scree.", distractors=[D_CUST_ARR])
@@ -603,7 +612,7 @@ scenario(
          passenger="ACCOMPANYING_NON_EMPLOYEE", accompanies="Daniel Park, Vice President, Channel Sales",
          origin="ORD", destination="MIA", travel_date="2027-03-03", booking_date="2027-01-25",
          purpose="Accompanying her husband to the security trade show in Miami", purpose_kind="TRADE_SHOW",
-         trip_authorized_by=SUP),
+         trip_authorized_by=COMPANION_SUP),
     [search("out", "ORD", "MIA", "2027-03-03", {"aa": fl("AA", "07:30"), "ua": fl("UA", "10:45")},
             [of("aa-economy", "aa", "ECONOMY", 24600), of("ua-economy", "ua", "ECONOMY", 26100)])],
     expected("REFUSE", [], ["NONE"], ["COMPANION_NOT_AUTHORIZED", "COMPANION_NOT_COVERED"], ["NONE"],
@@ -715,7 +724,7 @@ scenario(
     "running the partners' spouses' program.",
     trip(**COMPANION_TRIP, non_employee_reason=REASON),
     companion_searches(),
-    expected("FLAG_FOR_APPROVAL", ["wn-economy"], ["ECONOMY"], ["APPROVAL_REQUIRED"], SENIOR, ["COMPANION_TRAVEL"]),
+    expected("FLAG_FOR_APPROVAL", ["wn-economy"], ["ECONOMY"], ["APPROVAL_REQUIRED"], SENIOR, COMPANION_CLAUSES),
     [COMPANION, LOWEST],
     "A business purpose is documented, but no senior executive has pre-approved it, and the travel agency will "
     "not issue a ticket without that authorization (452-457): hold the lowest fare for the sign-off.",

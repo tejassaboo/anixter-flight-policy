@@ -28,7 +28,7 @@
     "booking_date": "2027-01-25",
     "purpose": "Anixter partner conference in Las Vegas",
     "purpose_kind": "TRADE_SHOW",
-    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "trip_authorized_by": "verbal OK from Daniel Park's immediate supervisor, for Daniel Park's own trip",
     "requested_cabin": "ECONOMY",
     "requested_airline": "",
     "requested_airline_why": "",
@@ -46,7 +46,9 @@
         "given_on": "2027-01-18"
       }
     ],
-    "notes": []
+    "notes": [
+      "Marcus Hale's signed approval names Elena Park and gives the reason above for her to come."
+    ]
   },
   "world": {
     "searches": [
@@ -111,7 +113,10 @@
       "SENIOR_EXECUTIVE"
     ],
     "clauses": [
-      "COMPANION_TRAVEL"
+      "COMPANION_TRAVEL",
+      "INTRODUCTION",
+      "NON_REIMBURSABLE",
+      "SENIOR_EXECUTIVE_APPROVAL"
     ],
     "unclear_phrase": ""
   },

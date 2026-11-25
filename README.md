@@ -36,7 +36,8 @@ accumulate. A run makes 3 calls (`get_trip`, `search_flights`, `submit`): about 
 (52,900 to 54,300; output tokens not counted). The six extended-travel and combined-trip cases need two
 round-trip searches, so 4 calls and about 76,000-78,000 input tokens: they cross the hosted cap of 65,536 total
 tokens during the fourth call. The other 26 fit, with about 11,000 tokens of margin for output and any extra
-search. At 4 characters a token for the handbook too, 3-call runs are about 63,200-64,700, so the margin
+search; but an agent that checks the city beyond in `vesper-dale` (a second, one-way search, which the case
+allows) makes 4 calls there too, about 72,000 input tokens, and crosses the cap as well. At 4 characters a token for the handbook too, 3-call runs are about 63,200-64,700, so the margin
 nearly vanishes; run `full` locally with a raised cap.
 
 ## Task
@@ -81,7 +82,7 @@ nearly vanishes; run `full` locally with a raised cap.
 | `tansy-ridge` | multi_rule | BOOK (ac-business; BUSINESS) | SAME_CLASS_AS_CUSTOMER | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (306, 307-308, 311) |
 | `umber-wold` | hidden_clause | BOOK (ac-economy; ECONOMY) | SELF_APPROVAL or UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or EXPENSE_APPROVAL or INTRODUCTION (53, 306, 307-308, 310, 768) |
 | `vesper-dale` | hidden_clause | BOOK (ua-denver; ECONOMY) | CREATIVE_TICKETING or LOWEST_FARE | IMMEDIATE_SUPERVISOR or NONE | CREATIVE_TICKETING (346-348) |
-| `walnut-spur` | hidden_clause | BOOK (wn-economy; ECONOMY) | LOWEST_FARE or SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL (57-59, 313, 452-457) |
+| `walnut-spur` | hidden_clause | BOOK (wn-economy; ECONOMY) | LOWEST_FARE or SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (57-59, 313, 452-457) |
 | `aspen-knoll` | distractor | BOOK (dl-economy; ECONOMY) | LOWEST_FARE or PREFERRED_CARRIER_REQUIRED | IMMEDIATE_SUPERVISOR or NONE | COMMERCIAL_AIRLINES or EXPENSE_GUIDELINES or TRAVELER_REQUIREMENTS (102-103, 107-108, 313, 674) |
 | `yarrow-tarn` | distractor | BOOK (ua-economy; ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
 | `zinnia-loch` | distractor | BOOK (aa-economy; ECONOMY) | LOWEST_FARE or LOYALTY_PROGRAM_PREFERENCE | IMMEDIATE_SUPERVISOR or NONE | FREQUENT_FLYER or NON_REFUNDABLE_TICKETS or TRAVELER_REQUIREMENTS (107-108, 313, 341-342) |
@@ -91,7 +92,7 @@ nearly vanishes; run `full` locally with a raised cap.
 | `ember-shoal` | flag | FLAG_FOR_APPROVAL (am-business, am-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
 | `fennel-cliff` | flag | FLAG_FOR_APPROVAL (ac-business, ac-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | EXECUTIVE_VP or NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE or GIFTS or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
 | `gorse-inlet` | flag | FLAG_FOR_APPROVAL (ua-business, ua-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE (302-303, 306, 311) |
-| `heron-scree` | flag | FLAG_FOR_APPROVAL (wn-economy; ECONOMY) | APPROVAL_REQUIRED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL (313, 452-457) |
+| `heron-scree` | flag | FLAG_FOR_APPROVAL (wn-economy; ECONOMY) | APPROVAL_REQUIRED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (313, 452-457) |
 
 Mix (EDGE_CASES.md 5.2, 32-scenario row): 6 easy, 8 boundary twins, 5 multi-rule, 3 hidden clause or synonym, 3
 distractor, 3 refusal, 4 flags (12.5%; the 15% cap is 4). Boundary twins: 300 against 301 nonstop minutes

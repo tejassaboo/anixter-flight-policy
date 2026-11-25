@@ -97,6 +97,10 @@ LOWEST_CLAUSES = [Clause.CLASS_OF_SERVICE, Clause.LOWEST_LOGICAL_AIRFARE, Clause
 TRIP_OK = [Approver.NONE, Approver.IMMEDIATE_SUPERVISOR]  # line 50: verbal trip authorization, not a sign-off
 SENIOR = [Approver.SENIOR_EXECUTIVE, Approver.EXECUTIVE_VP]
 MANAGER = [Approver.MANAGER, Approver.IMMEDIATE_SUPERVISOR]
+# A non-employee's ticket with a business purpose turns on a senior executive's sign-off: lines 452-457, the
+# exceptions of Non-Reimbursable Expenses (127, 140) and the senior-executive definitions (57-59, 165-166).
+COMPANION_SIGN_CLAUSES = [Clause.COMPANION_TRAVEL, Clause.INTRODUCTION, Clause.NON_REIMBURSABLE,
+                          Clause.SENIOR_EXECUTIVE_APPROVAL]
 
 
 def over(rule, offer):
@@ -361,12 +365,12 @@ def companion(trip, route):
     state = senior_approval(trip, ApprovalSubject.NON_EMPLOYEE_TICKET)
     if state == "valid":
         return answer(Decision.BOOK, low, [ReasonCode.SENIOR_EXECUTIVE_APPROVED, ReasonCode.LOWEST_FARE], SENIOR,
-                      [Clause.COMPANION_TRAVEL],
+                      COMPANION_SIGN_CLAUSES,
                       "Lines 452-457: documented business purpose, pre-approved by an Executive Vice President "
                       "reporting to the CEO; line 313: the lowest fare.")
     if state == "none":
         return answer(Decision.FLAG_FOR_APPROVAL, low, [ReasonCode.APPROVAL_REQUIRED], SENIOR,
-                      [Clause.COMPANION_TRAVEL],
+                      COMPANION_SIGN_CLAUSES,
                       "Lines 452-457: a business purpose is documented, but no senior executive has pre-approved "
                       "it, and no ticket is issued without that authorization.")
     raise ValueError(f"a non-employee ticket with a {state} sign-off is not modelled")
