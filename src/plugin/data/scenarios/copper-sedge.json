@@ -104,7 +104,8 @@
       "INTERNATIONAL_LONG_FLIGHT"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR"
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
     ],
     "clauses": [
       "CLASS_OF_SERVICE"

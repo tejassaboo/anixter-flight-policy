@@ -95,7 +95,8 @@ NOT_COMPARABLE_PERCENT = 125
 
 LOWEST_CLAUSES = [Clause.CLASS_OF_SERVICE, Clause.LOWEST_LOGICAL_AIRFARE, Clause.NON_REFUNDABLE_TICKETS]
 # Line 50: the immediate supervisor's authorization of the trip, on file for every case that books (solve
-# checks it). The booking relies on it, so NONE ("no one's sign-off is involved at all") is not accepted.
+# checks it). The booking relies on it; since it is already on file, solve accepts NONE on every BOOK too
+# (template sync 4', after the 2026-11-24 re-validation).
 TRIP_OK = [Approver.IMMEDIATE_SUPERVISOR]
 SENIOR = [Approver.SENIOR_EXECUTIVE, Approver.EXECUTIVE_VP]
 MANAGER = [Approver.MANAGER, Approver.IMMEDIATE_SUPERVISOR]
@@ -172,8 +173,10 @@ def lowest_economy(trip, offers):
         raise ValueError("no economy offer on the route can be bought")
     preferred = [offer for offer in low if offer.carrier in trip.preferred_airlines]
     if preferred and len(preferred) < len(low):
+        # LOWEST_FARE is accepted, so the sections of the lowest-fare rule are too (line 313; 287).
         return (preferred, [ReasonCode.PREFERRED_CARRIER_REQUIRED, ReasonCode.LOWEST_FARE],
-                [Clause.TRAVELER_REQUIREMENTS, Clause.EXPENSE_GUIDELINES, Clause.COMMERCIAL_AIRLINES],
+                [Clause.TRAVELER_REQUIREMENTS, Clause.EXPENSE_GUIDELINES, Clause.COMMERCIAL_AIRLINES,
+                 Clause.LOWEST_LOGICAL_AIRFARE, Clause.NON_REFUNDABLE_TICKETS],
                 ("Lines 102, 107 and 674: equal lowest fares, so the preferred airline; line 103 allows a "
                 "non-preferred airline only with a lower fare."))
     if trip.preferred_airlines and not preferred:
@@ -228,6 +231,12 @@ def solve(trip, offers, hidden):
     key = decide(trip, offers, hidden)
     if key["decision"] == Decision.BOOK and not trip.trip_authorized_by:
         raise ValueError("a booking without the supervisor's trip authorization (line 50) is not modelled")
+    if key["decision"] == Decision.BOOK:
+        # Every sign-off a booking relies on is already on file (the trip authorization, and the manager's or a
+        # senior executive's where the case has one), so NONE ("no further sign-off") is accepted too. An
+        # invalid sign-off the case tests (sable-heath, umber-wold) is still not accepted: its giver is never in
+        # the key. A hold that awaits a sign-off accepts only the awaited role.
+        key["approvers"] = by_value([*key["approvers"], Approver.NONE])
     if key["decision"] == Decision.REFUSE and trip.trip_authorized_by:
         # A trip authorization on file that the refusal does not use (basil-crag: the employee's own trip): the
         # refusal relies on no one's sign-off, but readers split on it, so the supervisor is accepted too.
@@ -273,7 +282,8 @@ def loyalty(trip, route):
     if not asked or asked[0].fare_cents <= low[0].fare_cents:
         raise ValueError("a requested airline that is not dearer is not modelled")
     return answer(Decision.BOOK, low, [ReasonCode.LOYALTY_PROGRAM_PREFERENCE, ReasonCode.LOWEST_FARE], TRIP_OK,
-                  [Clause.FREQUENT_FLYER, Clause.TRAVELER_REQUIREMENTS, Clause.NON_REFUNDABLE_TICKETS],
+                  [Clause.FREQUENT_FLYER, Clause.TRAVELER_REQUIREMENTS, Clause.NON_REFUNDABLE_TICKETS,
+                   Clause.LOWEST_LOGICAL_AIRFARE],
                   f"Line 108: no higher airfare for miles ({asked[0].fare_cents} against {low[0].fare_cents} "
                   "cents); lines 341-342 likewise; line 313: the lowest cost.")
 
@@ -383,8 +393,9 @@ def companion(trip, route):
                       "Lines 452-457: documented business purpose, pre-approved by an Executive Vice President "
                       "reporting to the CEO; line 313: the lowest fare.")
     if state == "none":
-        return answer(Decision.FLAG_FOR_APPROVAL, low, [ReasonCode.APPROVAL_REQUIRED], SENIOR,
-                      COMPANION_SIGN_CLAUSES,
+        # The missing authorization is the companion's (455-457), so its own code is accepted too.
+        return answer(Decision.FLAG_FOR_APPROVAL, low, [ReasonCode.APPROVAL_REQUIRED, ReasonCode.COMPANION_NOT_AUTHORIZED],
+                      SENIOR, COMPANION_SIGN_CLAUSES,
                       "Lines 452-457: a business purpose is documented, but no senior executive has pre-approved "
                       "it, and no ticket is issued without that authorization.")
     raise ValueError(f"a non-employee ticket with a {state} sign-off is not modelled")

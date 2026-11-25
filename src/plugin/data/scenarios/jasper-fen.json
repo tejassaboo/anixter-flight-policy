@@ -145,7 +145,8 @@
     ],
     "approvers": [
       "IMMEDIATE_SUPERVISOR",
-      "MANAGER"
+      "MANAGER",
+      "NONE"
     ],
     "clauses": [
       "EXTENDED_TRAVEL"

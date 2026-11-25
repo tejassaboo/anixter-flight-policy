@@ -98,7 +98,8 @@
       "ECONOMY"
     ],
     "reason_codes": [
-      "APPROVAL_REQUIRED"
+      "APPROVAL_REQUIRED",
+      "COMPANION_NOT_AUTHORIZED"
     ],
     "approvers": [
       "EXECUTIVE_VP",

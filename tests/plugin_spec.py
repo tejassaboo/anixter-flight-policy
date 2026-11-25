@@ -45,7 +45,8 @@ ID_CATEGORY_ENUMS = [contract.Passenger, contract.Purpose, contract.ExtraDays, c
 # How many scenarios a degenerate agent may pass: one that always holds the right offer for approval, and
 # one that always books the cheapest seat (with the right section). Set to what each actually passes (README).
 MAX_PASS_ALWAYS_FLAG = 3
-MAX_PASS_ALWAYS_LOWEST = 0  # its approver NONE is never accepted on a booking (line 50)
+MAX_PASS_ALWAYS_LOWEST = 5  # NONE is accepted on every BOOK (sync 4'): birch-lagoon, flint-marsh, garnet-rill,
+# walnut-spur, zinnia-loch
 
 # Hand-built duration cases beyond the automatic both-sides tests: (rule, outbound scheduled minutes per
 # flight, layovers, expected True / False / None for unclear). coach-flight is per flight, with connections

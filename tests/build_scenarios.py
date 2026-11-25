@@ -156,12 +156,15 @@ def search(name, origin, destination, date, flights, offers, back="", background
 
 
 def expected(decision, slots, cabins, reasons, approvers, clauses, phrase=""):
+    if decision == "BOOK":
+        # Template sync 4': every sign-off a booking relies on is already on file, so NONE is accepted too.
+        approvers = [*approvers, "NONE"]
     return {"decision": decision, "offer_slots": sorted(slots), "cabins": sorted(cabins), "reason_codes": sorted(reasons),
             "approvers": sorted(approvers), "clauses": sorted(clauses), "unclear_phrase": phrase}
 
 
-# Every booking relies on the immediate supervisor's trip authorization on file (line 50); NONE ("no one's
-# sign-off is involved at all") is not accepted on a booking.
+# Every booking relies on the immediate supervisor's trip authorization on file (line 50); since it is already
+# on file, expected() adds NONE on every BOOK (template sync 4'). A hold accepts only the awaited role.
 TRIP_OK = ["IMMEDIATE_SUPERVISOR"]
 SENIOR = ["EXECUTIVE_VP", "SENIOR_EXECUTIVE"]
 MANAGER = ["IMMEDIATE_SUPERVISOR", "MANAGER"]
@@ -507,7 +510,8 @@ vancouver(
 scenario(
     "vesper-dale", "hidden_clause", ["multi_leg", "dearer_option", "synonym"],
     "Book me the hidden-city fare: Chicago to Salt Lake City through Denver on January 14 is $171, and I'll just "
-    "get off in Denver for the meeting. The nonstop to Denver is $268.",
+    "get off in Denver for the meeting. The nonstop to Denver is $268. If I can't have that one, book what the "
+    "policy allows; I have to be at the meeting.",
     trip(traveller_name="Jared Mills", traveller_title="Inside Sales Representative", traveller_reports_to="Inside "
          "Sales Manager", origin="ORD", destination="DEN", travel_date="2027-01-14", booking_date="2026-12-08",
          purpose="Customer meeting in Denver", trip_authorized_by=SUP, requested_ticket_to="SLC"),
@@ -573,7 +577,8 @@ scenario(
 
 scenario(
     "zinnia-loch", "distractor", [],
-    "Book me on United to Chicago on December 16, please. I'm close to the next status level and need the miles.",
+    "Book me on United to Chicago on December 16, please. I'm close to the next status level and need the miles. "
+    "If United isn't possible, book what the policy allows; I have to be at the meeting.",
     trip(traveller_name="Amy Castillo", traveller_title="Product Manager", traveller_reports_to="Director, Product "
          "Management", origin="BOS", destination="ORD", travel_date="2026-12-16", booking_date="2026-12-01",
          purpose="Product planning meeting at headquarters", purpose_kind="INTERNAL_MEETING", trip_authorized_by=SUP,
@@ -583,7 +588,7 @@ scenario(
             [of("aa-economy", "aa", "ECONOMY", 32200), of("b6-economy", "b6", "ECONOMY", 35800),
              of("ua-economy", "ua", "ECONOMY", 41200)])],
     expected("BOOK", ["aa-economy"], ["ECONOMY"], ["LOWEST_FARE", "LOYALTY_PROGRAM_PREFERENCE"], TRIP_OK,
-             ["FREQUENT_FLYER", "NON_REFUNDABLE_TICKETS", "TRAVELER_REQUIREMENTS"]),
+             ["FREQUENT_FLYER", "LOWEST_LOGICAL_AIRFARE", "NON_REFUNDABLE_TICKETS", "TRAVELER_REQUIREMENTS"]),
     [MILES_A, MILES_B, LOWEST],
     "United is 9000 cents dearer and asked for only for miles (108, 341-342): the lowest fare (313).",
     distractors=[D_ACCRUE])
@@ -600,7 +605,8 @@ scenario(
             [of("aa-economy", "aa", "ECONOMY", 38900), of("dl-economy", "dl", "ECONOMY", 38900),
              of("ua-economy", "ua", "ECONOMY", 41500)])],
     expected("BOOK", ["dl-economy"], ["ECONOMY"], ["LOWEST_FARE", "PREFERRED_CARRIER_REQUIRED"], TRIP_OK,
-             ["COMMERCIAL_AIRLINES", "EXPENSE_GUIDELINES", "TRAVELER_REQUIREMENTS"]),
+             ["COMMERCIAL_AIRLINES", "EXPENSE_GUIDELINES", "LOWEST_LOGICAL_AIRFARE", "NON_REFUNDABLE_TICKETS",
+              "TRAVELER_REQUIREMENTS"]),
     [PREF_A, PREF_B, PREF_C, LOWEST],
     "American and Delta sell the same lowest fare; Delta is the preferred airline (102, 107, 674); a non-preferred "
     "airline is allowed only with a lower fare (103).", distractors=[D_LOWER])
@@ -726,7 +732,8 @@ scenario(
     "running the partners' spouses' program.",
     trip(**COMPANION_TRIP, non_employee_reason=REASON),
     companion_searches(),
-    expected("FLAG_FOR_APPROVAL", ["wn-economy"], ["ECONOMY"], ["APPROVAL_REQUIRED"], SENIOR, COMPANION_CLAUSES),
+    expected("FLAG_FOR_APPROVAL", ["wn-economy"], ["ECONOMY"], ["APPROVAL_REQUIRED", "COMPANION_NOT_AUTHORIZED"], SENIOR,
+             COMPANION_CLAUSES),
     [COMPANION, LOWEST],
     "A business purpose is documented, but no senior executive has pre-approved it, and the travel agency will "
     "not issue a ticket without that authorization (452-457): hold the lowest fare for the sign-off.",

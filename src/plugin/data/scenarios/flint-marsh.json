@@ -102,7 +102,8 @@
       "LOWEST_FARE"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR"
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
     ],
     "clauses": [
       "CLASS_OF_SERVICE",

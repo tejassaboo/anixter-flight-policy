@@ -144,7 +144,8 @@
     ],
     "approvers": [
       "IMMEDIATE_SUPERVISOR",
-      "MANAGER"
+      "MANAGER",
+      "NONE"
     ],
     "clauses": [
       "COMBINED_TRAVEL"

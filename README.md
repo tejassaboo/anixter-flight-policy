@@ -62,38 +62,38 @@ nearly vanishes; run `full` locally with a raised cap.
 
 | Scenario | Category | Expected decision (offer, cabin) | Reason | Approver | Clause (frozen lines) |
 |---|---|---|---|---|---|
-| `birch-lagoon` | easy | BOOK (ua-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (302-303, 313) |
-| `copper-sedge` | easy | BOOK (aa-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (306, 307-308, 313) |
-| `dover-kiln` | easy | BOOK (ua-economy; ECONOMY) | DOMESTIC_COACH_ONLY or LONG_FLIGHT_CONDITION_NOT_MET or SAME_CLASS_AS_CUSTOMER or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (302-303, 306, 311) |
-| `elm-cascade` | easy | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (306, 307-308, 313) |
-| `flint-marsh` | easy | BOOK (ua-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (306, 313) |
-| `garnet-rill` | easy | BOOK (dl-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (302-303, 313) |
-| `hollow-pike` | boundary_twin | BOOK (ac-economy; ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (302-303, 306, 307-308) |
-| `ivory-brook` | boundary_twin | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (302-303, 306, 307-308) |
-| `jasper-fen` | boundary_twin | BOOK (dl-later; ECONOMY) | COST_SAVINGS or EXTENDED_TRAVEL_SAVINGS | IMMEDIATE_SUPERVISOR or MANAGER | EXTENDED_TRAVEL (446-450) |
-| `kettle-moor` | boundary_twin | BOOK (dl-first; ECONOMY) | EXTENDED_TRAVEL_TRIP_TOO_LONG | IMMEDIATE_SUPERVISOR or MANAGER | EXTENDED_TRAVEL (446-450) |
-| `lark-gully` | boundary_twin | BOOK (ua-later; ECONOMY) | COST_SAVINGS or EXTENDED_TRAVEL_SAVINGS | IMMEDIATE_SUPERVISOR or MANAGER | EXTENDED_TRAVEL (446-450) |
-| `mossy-weir` | boundary_twin | BOOK (ua-first; ECONOMY) | EXTENDED_TRAVEL_NOT_OFFSET | IMMEDIATE_SUPERVISOR or MANAGER | EXTENDED_TRAVEL (446-450) |
-| `nectar-bluff` | boundary_twin | BOOK (ua-longer; ECONOMY) | COMBINED_TRIP_NO_ADDED_COST | IMMEDIATE_SUPERVISOR or MANAGER | COMBINED_TRAVEL (313, 463-468) |
-| `onyx-grove` | boundary_twin | BOOK (ua-plain; ECONOMY) | COMBINED_TRIP_ADDED_COST | IMMEDIATE_SUPERVISOR or MANAGER | COMBINED_TRAVEL (313, 463-468) |
-| `pebble-cove` | multi_rule | BOOK (as-economy; ECONOMY) | UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (302-303, 306, 307-308) |
-| `quill-meadow` | multi_rule | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (306, 307-308) |
-| `raven-ford` | multi_rule | BOOK (ac-business; BUSINESS) | SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or SENIOR_EXECUTIVE | CLASS_OF_SERVICE or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
-| `sable-heath` | multi_rule | BOOK (ac-economy; ECONOMY) | APPROVER_NOT_AUTHORIZED or UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
-| `tansy-ridge` | multi_rule | BOOK (ac-business; BUSINESS) | SAME_CLASS_AS_CUSTOMER | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (306, 307-308, 311) |
-| `umber-wold` | hidden_clause | BOOK (ac-economy; ECONOMY) | SELF_APPROVAL or UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE or EXPENSE_APPROVAL or INTRODUCTION (53, 306, 307-308, 310, 768) |
-| `vesper-dale` | hidden_clause | BOOK (ua-denver; ECONOMY) | CREATIVE_TICKETING or LOWEST_FARE | IMMEDIATE_SUPERVISOR | CREATIVE_TICKETING (346-348) |
-| `walnut-spur` | hidden_clause | BOOK (wn-economy; ECONOMY) | LOWEST_FARE or SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (57-59, 313, 452-457) |
-| `aspen-knoll` | distractor | BOOK (dl-economy; ECONOMY) | LOWEST_FARE or PREFERRED_CARRIER_REQUIRED | IMMEDIATE_SUPERVISOR | COMMERCIAL_AIRLINES or EXPENSE_GUIDELINES or TRAVELER_REQUIREMENTS (102-103, 107-108, 313, 674) |
-| `yarrow-tarn` | distractor | BOOK (ua-economy; ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR | CLASS_OF_SERVICE (302-303, 306, 307-308) |
-| `zinnia-loch` | distractor | BOOK (aa-economy; ECONOMY) | LOWEST_FARE or LOYALTY_PROGRAM_PREFERENCE | IMMEDIATE_SUPERVISOR | FREQUENT_FLYER or NON_REFUNDABLE_TICKETS or TRAVELER_REQUIREMENTS (107-108, 313, 341-342) |
+| `birch-lagoon` | easy | BOOK (ua-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (302-303, 313) |
+| `copper-sedge` | easy | BOOK (aa-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (306, 307-308, 313) |
+| `dover-kiln` | easy | BOOK (ua-economy; ECONOMY) | DOMESTIC_COACH_ONLY or LONG_FLIGHT_CONDITION_NOT_MET or SAME_CLASS_AS_CUSTOMER or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 311) |
+| `elm-cascade` | easy | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (306, 307-308, 313) |
+| `flint-marsh` | easy | BOOK (ua-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (306, 313) |
+| `garnet-rill` | easy | BOOK (dl-economy; ECONOMY) | LOWEST_FARE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS (302-303, 313) |
+| `hollow-pike` | boundary_twin | BOOK (ac-economy; ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
+| `ivory-brook` | boundary_twin | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
+| `jasper-fen` | boundary_twin | BOOK (dl-later; ECONOMY) | COST_SAVINGS or EXTENDED_TRAVEL_SAVINGS | IMMEDIATE_SUPERVISOR or MANAGER or NONE | EXTENDED_TRAVEL (446-450) |
+| `kettle-moor` | boundary_twin | BOOK (dl-first; ECONOMY) | EXTENDED_TRAVEL_TRIP_TOO_LONG | IMMEDIATE_SUPERVISOR or MANAGER or NONE | EXTENDED_TRAVEL (446-450) |
+| `lark-gully` | boundary_twin | BOOK (ua-later; ECONOMY) | COST_SAVINGS or EXTENDED_TRAVEL_SAVINGS | IMMEDIATE_SUPERVISOR or MANAGER or NONE | EXTENDED_TRAVEL (446-450) |
+| `mossy-weir` | boundary_twin | BOOK (ua-first; ECONOMY) | EXTENDED_TRAVEL_NOT_OFFSET | IMMEDIATE_SUPERVISOR or MANAGER or NONE | EXTENDED_TRAVEL (446-450) |
+| `nectar-bluff` | boundary_twin | BOOK (ua-longer; ECONOMY) | COMBINED_TRIP_NO_ADDED_COST | IMMEDIATE_SUPERVISOR or MANAGER or NONE | COMBINED_TRAVEL (313, 463-468) |
+| `onyx-grove` | boundary_twin | BOOK (ua-plain; ECONOMY) | COMBINED_TRIP_ADDED_COST | IMMEDIATE_SUPERVISOR or MANAGER or NONE | COMBINED_TRAVEL (313, 463-468) |
+| `pebble-cove` | multi_rule | BOOK (as-economy; ECONOMY) | UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
+| `quill-meadow` | multi_rule | BOOK (ac-business; BUSINESS) | INTERNATIONAL_LONG_FLIGHT | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (306, 307-308) |
+| `raven-ford` | multi_rule | BOOK (ac-business; BUSINESS) | SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or NONE or SENIOR_EXECUTIVE | CLASS_OF_SERVICE or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
+| `sable-heath` | multi_rule | BOOK (ac-economy; ECONOMY) | APPROVER_NOT_AUTHORIZED or UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
+| `tansy-ridge` | multi_rule | BOOK (ac-business; BUSINESS) | SAME_CLASS_AS_CUSTOMER | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (306, 307-308, 311) |
+| `umber-wold` | hidden_clause | BOOK (ac-economy; ECONOMY) | SELF_APPROVAL or UPGRADE_NOT_ELIGIBLE or US_ORIGIN_CANADA_MEXICO_CARIBBEAN | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE or EXPENSE_APPROVAL or INTRODUCTION (53, 306, 307-308, 310, 768) |
+| `vesper-dale` | hidden_clause | BOOK (ua-denver; ECONOMY) | CREATIVE_TICKETING or LOWEST_FARE | IMMEDIATE_SUPERVISOR or NONE | CREATIVE_TICKETING (346-348) |
+| `walnut-spur` | hidden_clause | BOOK (wn-economy; ECONOMY) | LOWEST_FARE or SENIOR_EXECUTIVE_APPROVED | EXECUTIVE_VP or NONE or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (57-59, 313, 452-457) |
+| `aspen-knoll` | distractor | BOOK (dl-economy; ECONOMY) | LOWEST_FARE or PREFERRED_CARRIER_REQUIRED | IMMEDIATE_SUPERVISOR or NONE | COMMERCIAL_AIRLINES or EXPENSE_GUIDELINES or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS or TRAVELER_REQUIREMENTS (102-103, 107-108, 313, 674) |
+| `yarrow-tarn` | distractor | BOOK (ua-economy; ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | IMMEDIATE_SUPERVISOR or NONE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
+| `zinnia-loch` | distractor | BOOK (aa-economy; ECONOMY) | LOWEST_FARE or LOYALTY_PROGRAM_PREFERENCE | IMMEDIATE_SUPERVISOR or NONE | FREQUENT_FLYER or LOWEST_LOGICAL_AIRFARE or NON_REFUNDABLE_TICKETS or TRAVELER_REQUIREMENTS (107-108, 313, 341-342) |
 | `basil-crag` | refusal | REFUSE (none; NONE) | COMPANION_NOT_AUTHORIZED or COMPANION_NOT_COVERED | IMMEDIATE_SUPERVISOR or NONE | COMPANION_TRAVEL or NON_REIMBURSABLE (140, 452-457) |
 | `cobble-mere` | refusal | REFUSE (none; NONE) | OUTSIDE_POLICY_SCOPE or PERSONAL_TRAVEL_NOT_COVERED | NONE | COMBINED_TRAVEL or INTRODUCTION or POLICY_OVERVIEW (46-47, 85-86, 463-468) |
 | `dahlia-glen` | refusal | REFUSE (none; NONE) | OUTSIDE_POLICY_SCOPE or PERSONAL_TRAVEL_NOT_COVERED | NONE | COMBINED_TRAVEL or INTRODUCTION or POLICY_OVERVIEW (46-47, 85-86) |
 | `ember-shoal` | flag | FLAG_FOR_APPROVAL (am-business, am-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE (302-303, 306, 307-308) |
 | `fennel-cliff` | flag | FLAG_FOR_APPROVAL (ac-business, ac-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | EXECUTIVE_VP or NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE or GIFTS or INTRODUCTION or SENIOR_EXECUTIVE_APPROVAL (57-59, 165-166, 306, 307-308, 310, 554-555) |
 | `gorse-inlet` | flag | FLAG_FOR_APPROVAL (ua-business, ua-economy; BUSINESS or ECONOMY) | UNCLEAR_POLICY_TEXT | NOT_NAMED or SENIOR_EXECUTIVE | CLASS_OF_SERVICE (302-303, 306, 311) |
-| `heron-scree` | flag | FLAG_FOR_APPROVAL (wn-economy; ECONOMY) | APPROVAL_REQUIRED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (313, 452-457) |
+| `heron-scree` | flag | FLAG_FOR_APPROVAL (wn-economy; ECONOMY) | APPROVAL_REQUIRED or COMPANION_NOT_AUTHORIZED | EXECUTIVE_VP or SENIOR_EXECUTIVE | COMPANION_TRAVEL or INTRODUCTION or NON_REIMBURSABLE or SENIOR_EXECUTIVE_APPROVAL (313, 452-457) |
 
 Mix (EDGE_CASES.md 5.2, 32-scenario row): 6 easy, 8 boundary twins, 5 multi-rule, 3 hidden clause or synonym, 3
 distractor, 3 refusal, 4 flags (12.5%; the 15% cap is 4). Boundary twins: 300 against 301 nonstop minutes
@@ -110,11 +110,15 @@ executive's pre-approval), which is never the same as "no compliant offer"; its 
 
 Accepted approvers: the approver is the role whose sign-off the decision relies on, on file or awaited. Every
 BOOK relies on the immediate supervisor's authorization of the trip (line 50; the trip record says so), so it
-accepts `IMMEDIATE_SUPERVISOR` (with `MANAGER` or the senior roles where their sign-off is on file) and never
-`NONE`; a refusal relies on no sign-off and accepts `NONE` (and `IMMEDIATE_SUPERVISOR` too when a trip authorization it does not use is on file, `basil-crag`). The invalid sign-offs of `sable-heath` and `umber-wold` are what those cases test, so their givers are not accepted. Degenerate agents: one that always holds the right
-offer as unclear passes the 3 unclear holds; one that always books the cheapest seat with `LOWEST_FARE` and
-approver `NONE` passes none (with `IMMEDIATE_SUPERVISOR` it would pass `birch-lagoon`, `flint-marsh`,
-`garnet-rill` and `zinnia-loch`).
+accepts `IMMEDIATE_SUPERVISOR` (with `MANAGER` or the senior roles where their sign-off is on file); since every
+sign-off a booking relies on is already on file, it accepts `NONE` too (template sync 4', after the 2026-11-24
+re-validation). A hold that awaits a sign-off accepts only the awaited role (`heron-scree`: the senior roles;
+the unclear holds: `NOT_NAMED` or the senior roles), never `NONE`. A refusal relies on no sign-off and accepts
+`NONE` (and `IMMEDIATE_SUPERVISOR` too when a trip authorization it does not use is on file, `basil-crag`). The
+invalid sign-offs of `sable-heath` and `umber-wold` are what those cases test, so their givers are not accepted.
+Degenerate agents: one that always holds the right offer as unclear passes the 3 unclear holds; one that always
+books the cheapest seat with `LOWEST_FARE` and approver `NONE` passes 5 (`birch-lagoon`, `flint-marsh`,
+`garnet-rill`, `walnut-spur` and `zinnia-loch`).
 
 ## Tools
 

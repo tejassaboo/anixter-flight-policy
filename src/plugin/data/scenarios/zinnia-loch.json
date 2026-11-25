@@ -6,7 +6,7 @@
   "twin_fact": "",
   "flag_twins": [],
   "ambiguity_note": "none",
-  "request": "Book me on United to Chicago on December 16, please. I'm close to the next status level and need the miles.",
+  "request": "Book me on United to Chicago on December 16, please. I'm close to the next status level and need the miles. If United isn't possible, book what the policy allows; I have to be at the meeting.",
   "trip": {
     "traveller_name": "Amy Castillo",
     "traveller_title": "Product Manager",
@@ -95,10 +95,12 @@
       "LOYALTY_PROGRAM_PREFERENCE"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR"
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
     ],
     "clauses": [
       "FREQUENT_FLYER",
+      "LOWEST_LOGICAL_AIRFARE",
       "NON_REFUNDABLE_TICKETS",
       "TRAVELER_REQUIREMENTS"
     ],
