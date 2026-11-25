@@ -1,5 +1,7 @@
 # Anixter Global Travel Flight Policy
 
+**Source of the handbook:** https://corpapps.anixter.com/DocLib1/R7699UNJ/$file/Anixter_Global_Travel_Policy.pdf?openelement=. The agent reads it verbatim (bundled at `src/plugin/data/policy.txt`); flights, fares and trips are synthetic.
+
 **No affiliation with Anixter.** The handbook is Anixter's public *Global Travel, Entertainment & Expense Policy*
 (revised March 24, 2014), bundled verbatim for research. It is a corporate handbook: do not publish this plugin
 before the course staff confirm that a verbatim corporate handbook may be redistributed (MASTER_PLAN section 4).
