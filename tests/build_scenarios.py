@@ -219,7 +219,7 @@ scenario(
             {"ba": fl("BA", "18:30", [420]), "aa": fl("AA", "21:10", [415])},
             [of("ba-economy", "ba", "ECONOMY", 68000), of("ba-business", "ba", "BUSINESS", 412000),
              of("aa-economy", "aa", "ECONOMY", 64500), of("aa-business", "aa", "BUSINESS", 398000)], background=0)],
-    expected("BOOK", ["aa-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT"], TRIP_OK, ["CLASS_OF_SERVICE"]),
+    expected("BOOK", ["aa-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT", "LONG_FLIGHT_APPROVED"], TRIP_OK, ["CLASS_OF_SERVICE"]),
     [INSTANCES, INTL, LOWEST],
     "International nonstops of 415-420 minutes: over five hours of flying time and not U.S. to Canada, Mexico or "
     "the Caribbean (307-308), so business is allowed; the cheaper business fare (313). Background off: a "
@@ -255,7 +255,7 @@ scenario(
             {"ac": fl("AC", "17:45", [470]), "lh": fl("LH", "20:00", [480])},
             [of("ac-economy", "ac", "ECONOMY", 92000), of("ac-business", "ac", "BUSINESS", 455000),
              of("lh-economy", "lh", "ECONOMY", 98000), of("lh-business", "lh", "BUSINESS", 470000)], background=0)],
-    expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT"], TRIP_OK, ["CLASS_OF_SERVICE"]),
+    expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT", "LONG_FLIGHT_APPROVED"], TRIP_OK, ["CLASS_OF_SERVICE"]),
     [INSTANCES, INTL, LOWEST],
     "A Canadian employee on a 470-minute international nonstop: business allowed (307); the cheaper business fare.")
 
@@ -303,7 +303,7 @@ for name, minutes, twin in (("hollow-pike", 300, "ivory-brook"), ("ivory-brook",
                 {"ac": fl("AC", "08:10", [minutes]), "am": fl("AM", "14:05", [minutes])},
                 [of("ac-economy", "ac", "ECONOMY", 52000), of("ac-business", "ac", "BUSINESS", 168000),
                  of("am-economy", "am", "ECONOMY", 54900)], background=0)],
-        expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT"], TRIP_OK, ["CLASS_OF_SERVICE"])
+        expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT", "LONG_FLIGHT_APPROVED"], TRIP_OK, ["CLASS_OF_SERVICE"])
         if over_limit else
         expected("BOOK", ["ac-economy"], ["ECONOMY"], ["LONG_FLIGHT_CONDITION_NOT_MET", "UPGRADE_NOT_ELIGIBLE"],
                  TRIP_OK, ["CLASS_OF_SERVICE"]),
@@ -435,7 +435,7 @@ scenario(
             {"ac": fl("AC", "08:15", [340]), "am": fl("AM", "13:00", [345])},
             [of("ac-economy", "ac", "ECONOMY", 46000), of("ac-business", "ac", "BUSINESS", 142000),
              of("am-economy", "am", "ECONOMY", 47500), of("am-business", "am", "BUSINESS", 149000)], background=0)],
-    expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT"], TRIP_OK, ["CLASS_OF_SERVICE"]),
+    expected("BOOK", ["ac-business"], ["BUSINESS"], ["INTERNATIONAL_LONG_FLIGHT", "LONG_FLIGHT_APPROVED"], TRIP_OK, ["CLASS_OF_SERVICE"]),
     [INSTANCES, INTL],
     "The exclusion names U.S.-originating flights only (308); from Vancouver, international and 340 minutes: "
     "business (307).",

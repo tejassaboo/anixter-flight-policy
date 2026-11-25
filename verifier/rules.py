@@ -339,7 +339,9 @@ def business(trip, route):
                       phrase="all flights with a duration of five hours or less of flying time")
     granted, approvers = [], []
     if total_over and not excluded:  # line 307
-        granted.append(ReasonCode.INTERNATIONAL_LONG_FLIGHT)
+        # LONG_FLIGHT_APPROVED names the same ground (validation w1v3; FedEx cinder-heath, wave 2): accepted beside it,
+        # as in most plugins' long-flight keys.
+        granted += [ReasonCode.INTERNATIONAL_LONG_FLIGHT, ReasonCode.LONG_FLIGHT_APPROVED]
         approvers += TRIP_OK
     if customer:  # line 311
         granted.append(ReasonCode.SAME_CLASS_AS_CUSTOMER)
