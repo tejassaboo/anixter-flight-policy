@@ -1,0 +1,158 @@
+{
+  "id": "walnut-spur",
+  "category": "hidden_clause",
+  "overlays": [
+    "multi_traveller",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Please book my wife Elena to Las Vegas on February 22 for the partner conference. She's running the partners' spouses' program; Marcus Hale approved it in writing.",
+  "trip": {
+    "traveller_name": "Elena Park",
+    "traveller_title": "Spouse of the employee Daniel Park",
+    "traveller_reports_to": "",
+    "passenger": "ACCOMPANYING_NON_EMPLOYEE",
+    "accompanies": "Daniel Park, Vice President, Channel Sales",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "LAS",
+    "travel_date": "2027-02-22",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2027-01-25",
+    "purpose": "Anixter partner conference in Las Vegas",
+    "purpose_kind": "TRADE_SHOW",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "Hosts the partners' spouses' program at the partner conference, as the conference plan requires (plan on file).",
+    "approvals": [
+      {
+        "approver_name": "Marcus Hale",
+        "approver_title": "Executive Vice President, Global Operations",
+        "approver_reports_to": "President and CEO",
+        "subject": "NON_EMPLOYEE_TICKET",
+        "in_writing": true,
+        "given_on": "2027-01-18"
+      }
+    ],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ORD",
+        "destination": "LAS",
+        "date": "2027-02-22",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "08:00"
+          },
+          "wn": {
+            "carrier": "WN",
+            "depart": "10:20"
+          },
+          "aa": {
+            "carrier": "AA",
+            "depart": "14:35"
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 29700
+          },
+          {
+            "slot": "wn-economy",
+            "flight": "wn",
+            "cabin": "ECONOMY",
+            "fare_cents": 27600
+          },
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 31400
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "wn-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE",
+      "SENIOR_EXECUTIVE_APPROVED"
+    ],
+    "approvers": [
+      "EXECUTIVE_VP",
+      "SENIOR_EXECUTIVE"
+    ],
+    "clauses": [
+      "COMPANION_TRAVEL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        452,
+        457
+      ],
+      "sha256": "03c99117a0673aee78c941c6548df7c2871ccb79a2d2c6718fcf2f81ec2416ac",
+      "quote": " The company will not reimburse travel and entertainment expenses incurred by non-Anixter individuals accompanying an employee on business, unless there is a bona fide business purpose pre-approved by a senior executive.  Documented authorization must identify the non-Anixter individual and provide the business purpose for the individual to accompany the employee. The travel agency will not issue a ticket for the individual without such authorization.",
+      "why": "a non-employee's ticket needs a pre-approved business purpose"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    },
+    {
+      "lines": [
+        57,
+        59
+      ],
+      "sha256": "4ce647d45d4b09a21aa1aae246d789825de2d2a53be3727577b23bbc4671a2b0",
+      "quote": "Anixter will not reimburse any spending outside of company policy unless authorized by a senior executive. (A senior executive is defined as any Vice President reporting to the CEO or CFO.) Documented Executive VP approval of any spending exceptions must be included with receipts.",
+      "why": "who is a senior executive (introduction)"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        193,
+        195
+      ],
+      "quote": "If a non-Anixter traveler (i.e., supplier, customer or job applicant) desires to make travel arrangements through BCD Travel, an Anixter employee must make the reservations for him/her.",
+      "why": "booking for a customer, not a companion"
+    }
+  ],
+  "design_notes": "A documented business purpose pre-approved by an Executive Vice President reporting to the CEO (452-457): the ticket can be issued, at the lowest fare. Flag twin of heron-scree."
+}

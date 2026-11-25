@@ -1,0 +1,180 @@
+{
+  "id": "umber-wold",
+  "category": "hidden_clause",
+  "overlays": [
+    "upgrade_not_taken",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Business class to Vancouver on February 3. I've approved it myself in writing, as I do for my team. If business isn't possible, put me in economy; I have to be there.",
+  "trip": {
+    "traveller_name": "Marcus Hale",
+    "traveller_title": "Executive Vice President, Global Operations",
+    "traveller_reports_to": "President and CEO",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "JFK",
+    "destination": "YVR",
+    "travel_date": "2027-02-03",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2027-01-22",
+    "purpose": "Integration planning at the Vancouver branch",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [
+      {
+        "approver_name": "Marcus Hale",
+        "approver_title": "Executive Vice President, Global Operations",
+        "approver_reports_to": "President and CEO",
+        "subject": "BUSINESS_CABIN",
+        "in_writing": true,
+        "given_on": "2027-01-20"
+      }
+    ],
+    "notes": [
+      "Org chart on file: the Chief Financial Officer reports to the President and CEO."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "JFK",
+        "destination": "YVR",
+        "date": "2027-02-03",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ac": {
+            "carrier": "AC",
+            "depart": "08:45",
+            "minutes": [
+              350
+            ]
+          },
+          "dl": {
+            "carrier": "DL",
+            "depart": "17:20",
+            "minutes": [
+              355
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 38900
+          },
+          {
+            "slot": "ac-business",
+            "flight": "ac",
+            "cabin": "BUSINESS",
+            "fare_cents": 118000
+          },
+          {
+            "slot": "dl-economy",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          },
+          {
+            "slot": "dl-business",
+            "flight": "dl",
+            "cabin": "BUSINESS",
+            "fare_cents": 126000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ac-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "SELF_APPROVAL",
+      "UPGRADE_NOT_ELIGIBLE",
+      "US_ORIGIN_CANADA_MEXICO_CARIBBEAN"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE",
+      "EXPENSE_APPROVAL",
+      "INTRODUCTION"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    },
+    {
+      "lines": [
+        310,
+        310
+      ],
+      "sha256": "a677d75bfb47febc47be298445f86477bc169146c95358b984cc04e1da6b4ba5",
+      "quote": "When a senior executive has given prior written approval",
+      "why": "the sign-off instance"
+    },
+    {
+      "lines": [
+        53,
+        53
+      ],
+      "sha256": "880a462a27b61be8b3e173039aa1fdb15dd21e8f233f25290995f501e41fc952",
+      "quote": "Traveling employees may not authorize their own reimbursements or spending exceptions.",
+      "why": "no self-authorization (introduction)"
+    },
+    {
+      "lines": [
+        768,
+        768
+      ],
+      "sha256": "fc80cdf2517e6c49228e1c6d63e06637c7fd2c98aade58568c4e65afa1a9c4bd",
+      "quote": "Employees may not authorize or approve their own travel or reimbursement.",
+      "why": "no self-approval (expense reports)"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The traveller is a senior executive but signed his own approval: employees may not authorize their own spending exceptions or travel (53, 768). U.S. to Canada does not qualify (308): economy."
+}

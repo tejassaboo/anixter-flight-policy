@@ -1,0 +1,138 @@
+{
+  "id": "ivory-brook",
+  "category": "boundary_twin",
+  "overlays": [],
+  "twin_of": "hollow-pike",
+  "twin_fact": "nonstop scheduled minutes 300 or 301",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm heading to Mexico City on January 18 for the Latin America distributor kickoff. Business class, please.",
+  "trip": {
+    "traveller_name": "Marc Gagnon",
+    "traveller_title": "Director, Channel Sales",
+    "traveller_reports_to": "Vice President, Sales Canada",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Canada Inc.",
+    "home_country": "CA",
+    "origin": "YYZ",
+    "destination": "MEX",
+    "travel_date": "2027-01-18",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-02",
+    "purpose": "Latin America distributor kickoff in Mexico City",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "YYZ",
+        "destination": "MEX",
+        "date": "2027-01-18",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ac": {
+            "carrier": "AC",
+            "depart": "08:10",
+            "minutes": [
+              301
+            ]
+          },
+          "am": {
+            "carrier": "AM",
+            "depart": "14:05",
+            "minutes": [
+              301
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 52000
+          },
+          {
+            "slot": "ac-business",
+            "flight": "ac",
+            "cabin": "BUSINESS",
+            "fare_cents": 168000
+          },
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 54900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ac-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "INTERNATIONAL_LONG_FLIGHT"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "A Canadian employee (not U.S.-originating), international nonstop of 301 scheduled minutes: over five hours, so business (307)."
+}

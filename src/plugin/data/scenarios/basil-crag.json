@@ -1,0 +1,120 @@
+{
+  "id": "basil-crag",
+  "category": "refusal",
+  "overlays": [
+    "multi_traveller",
+    "personal_travel",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Could you book my wife Elena on the same Miami trip on March 3? She'd love to see Miami while I'm at the trade show.",
+  "trip": {
+    "traveller_name": "Elena Park",
+    "traveller_title": "Spouse of the employee Daniel Park",
+    "traveller_reports_to": "",
+    "passenger": "ACCOMPANYING_NON_EMPLOYEE",
+    "accompanies": "Daniel Park, Vice President, Channel Sales",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "MIA",
+    "travel_date": "2027-03-03",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2027-01-25",
+    "purpose": "Accompanying her husband to the security trade show in Miami",
+    "purpose_kind": "TRADE_SHOW",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ORD",
+        "destination": "MIA",
+        "date": "2027-03-03",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "aa": {
+            "carrier": "AA",
+            "depart": "07:30"
+          },
+          "ua": {
+            "carrier": "UA",
+            "depart": "10:45"
+          }
+        },
+        "offers": [
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 24600
+          },
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 26100
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "COMPANION_NOT_AUTHORIZED",
+      "COMPANION_NOT_COVERED"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "COMPANION_TRAVEL",
+      "NON_REIMBURSABLE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        452,
+        457
+      ],
+      "sha256": "03c99117a0673aee78c941c6548df7c2871ccb79a2d2c6718fcf2f81ec2416ac",
+      "quote": " The company will not reimburse travel and entertainment expenses incurred by non-Anixter individuals accompanying an employee on business, unless there is a bona fide business purpose pre-approved by a senior executive.  Documented authorization must identify the non-Anixter individual and provide the business purpose for the individual to accompany the employee. The travel agency will not issue a ticket for the individual without such authorization.",
+      "why": "a non-employee's ticket needs a pre-approved business purpose"
+    },
+    {
+      "lines": [
+        140,
+        140
+      ],
+      "sha256": "4c904ce969857afea8bb369c1d0ffc15c1527282826061fc75f351d8f94680df",
+      "quote": "Expenses for accompanying travelers who are not party to the business purpose of the trip",
+      "why": "accompanying travellers are not reimbursed"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "No business purpose for the spouse and no authorization (452-457); accompanying travellers who are not party to the business purpose are not reimbursed (140): no ticket. Flag twin of heron-scree."
+}

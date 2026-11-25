@@ -1,0 +1,168 @@
+{
+  "id": "jasper-fen",
+  "category": "boundary_twin",
+  "overlays": [
+    "date_arithmetic",
+    "month_end",
+    "outside_air_section"
+  ],
+  "twin_of": "kettle-moor",
+  "twin_fact": "leaves December 29 or December 27 (business days 4 or 6 calendar days apart)",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm in Seattle for the year-end inventory count from 12/29 to January 2. Flying back on Monday January 4 instead is a lot cheaper. If the company will cover the two extra hotel nights, book the Monday return; otherwise keep me on the January 2 return.",
+  "trip": {
+    "traveller_name": "Owen Price",
+    "traveller_title": "Inventory Control Supervisor",
+    "traveller_reports_to": "Distribution Center Manager",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ATL",
+    "destination": "SEA",
+    "travel_date": "2026-12-29",
+    "return_date": "2027-01-04",
+    "business_return_date": "2027-01-02",
+    "extra_days": "LATER_RETURN_FOR_FARE",
+    "extra_days_cost_cents": 31000,
+    "booking_date": "2026-12-03",
+    "purpose": "Year-end inventory count at the Seattle distribution center",
+    "purpose_kind": "SITE_VISIT",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [
+      {
+        "approver_name": "Helen Ruiz",
+        "approver_title": "Distribution Center Manager",
+        "approver_reports_to": "Regional Operations Director",
+        "subject": "LATER_RETURN",
+        "in_writing": true,
+        "given_on": "2026-12-02"
+      }
+    ],
+    "notes": [
+      "Two extra hotel nights at 135 USD and meals at 20 USD a day would be claimed."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "first",
+        "origin": "ATL",
+        "destination": "SEA",
+        "date": "2026-12-29",
+        "return_date": "2027-01-02",
+        "background": 3,
+        "flights": {
+          "dl": {
+            "carrier": "DL",
+            "depart": "07:40",
+            "return": {
+              "depart": "16:20"
+            }
+          },
+          "as": {
+            "carrier": "AS",
+            "depart": "11:05",
+            "return": {
+              "depart": "18:45"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "dl-first",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 78000
+          },
+          {
+            "slot": "as-first",
+            "flight": "as",
+            "cabin": "ECONOMY",
+            "fare_cents": 81500
+          }
+        ]
+      },
+      {
+        "name": "later",
+        "origin": "ATL",
+        "destination": "SEA",
+        "date": "2026-12-29",
+        "return_date": "2027-01-04",
+        "background": 3,
+        "flights": {
+          "dl": {
+            "carrier": "DL",
+            "depart": "07:40",
+            "return": {
+              "depart": "16:20"
+            }
+          },
+          "as": {
+            "carrier": "AS",
+            "depart": "11:05",
+            "return": {
+              "depart": "18:45"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "dl-later",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 43000
+          },
+          {
+            "slot": "as-later",
+            "flight": "as",
+            "cabin": "ECONOMY",
+            "fare_cents": 46900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "dl-later"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "COST_SAVINGS",
+      "EXTENDED_TRAVEL_SAVINGS"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "MANAGER"
+    ],
+    "clauses": [
+      "EXTENDED_TRAVEL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        446,
+        450
+      ],
+      "sha256": "83e142811120c73da2a4a15680635e1aeb14ca46c584ce0866fcf1db79100e82",
+      "quote": "An employee may be reimbursed for business expenses incurred as the result of departing earlier or staying later. Such extended travel must:  Be approved in advance by the employee's manager.  Qualify the employee for a savings in airfare that offsets the added expense.  Apply only to travel originally scheduled for less than six days.",
+      "why": "the three conditions for extended travel"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Staying later saves 35000 cents of airfare against 31000 added (offset), approved in advance by the manager (446-450). The trip as planned runs four days apart (five counting both ends): less than six days, so the later return."
+}

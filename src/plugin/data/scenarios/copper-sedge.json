@@ -1,0 +1,146 @@
+{
+  "id": "copper-sedge",
+  "category": "easy",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Please book me business class to London for the EMEA supplier summit on December 14.",
+  "trip": {
+    "traveller_name": "Tom Becker",
+    "traveller_title": "Director, Supplier Development",
+    "traveller_reports_to": "Vice President, Global Sourcing",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "JFK",
+    "destination": "LHR",
+    "travel_date": "2026-12-14",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "EMEA supplier summit in London",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "JFK",
+        "destination": "LHR",
+        "date": "2026-12-14",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ba": {
+            "carrier": "BA",
+            "depart": "18:30",
+            "minutes": [
+              420
+            ]
+          },
+          "aa": {
+            "carrier": "AA",
+            "depart": "21:10",
+            "minutes": [
+              415
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ba-economy",
+            "flight": "ba",
+            "cabin": "ECONOMY",
+            "fare_cents": 68000
+          },
+          {
+            "slot": "ba-business",
+            "flight": "ba",
+            "cabin": "BUSINESS",
+            "fare_cents": 412000
+          },
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 64500
+          },
+          {
+            "slot": "aa-business",
+            "flight": "aa",
+            "cabin": "BUSINESS",
+            "fare_cents": 398000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "aa-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "INTERNATIONAL_LONG_FLIGHT"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "International nonstops of 415-420 minutes: over five hours of flying time and not U.S. to Canada, Mexico or the Caribbean (307-308), so business is allowed; the cheaper business fare (313). Background off: a background connection could fall under the unclear per-flight reading."
+}

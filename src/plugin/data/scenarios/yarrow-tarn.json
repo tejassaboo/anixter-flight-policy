@@ -1,0 +1,158 @@
+{
+  "id": "yarrow-tarn",
+  "category": "distractor",
+  "overlays": [
+    "multi_leg",
+    "upgrade_not_taken"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I need to get to Denver on January 26 for the cabling contractor meeting, business class please. It's a long day with the Chicago connection.",
+  "trip": {
+    "traveller_name": "Luc Tremblay",
+    "traveller_title": "Business Development Manager",
+    "traveller_reports_to": "Director, Business Development Canada",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Canada Inc.",
+    "home_country": "CA",
+    "origin": "YUL",
+    "destination": "DEN",
+    "travel_date": "2027-01-26",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-09",
+    "purpose": "Cabling contractor meeting in Denver",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "YUL",
+        "destination": "DEN",
+        "date": "2027-01-26",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "07:00",
+            "via": [
+              "ORD"
+            ],
+            "minutes": [
+              135,
+              155
+            ],
+            "layovers": [
+              120
+            ]
+          },
+          "ac": {
+            "carrier": "AC",
+            "depart": "12:30",
+            "minutes": [
+              235
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 39800
+          },
+          {
+            "slot": "ua-business",
+            "flight": "ua",
+            "cabin": "BUSINESS",
+            "fare_cents": 121000
+          },
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 42500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LONG_FLIGHT_CONDITION_NOT_MET",
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        307,
+        307
+      ],
+      "quote": "excluding layover time",
+      "why": "the ground time is left out of the flying time"
+    }
+  ],
+  "design_notes": "Flights of 135 and 155 minutes: 290 minutes of flying time, excluding the 120-minute layover (307); each flight and the total are five hours or less: coach on every reading (302-303). The 410 elapsed minutes do not count. Flag twin of ember-shoal."
+}

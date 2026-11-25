@@ -1,0 +1,149 @@
+{
+  "id": "tansy-ridge",
+  "category": "multi_rule",
+  "overlays": [
+    "multi_traveller"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm flying to Vancouver on February 3 with Coastal Fiber's CIO, who is in business class. Please put me in business with him.",
+  "trip": {
+    "traveller_name": "Nora Feld",
+    "traveller_title": "Director, Canadian Integration",
+    "traveller_reports_to": "Vice President, Corporate Development",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "JFK",
+    "destination": "YVR",
+    "travel_date": "2027-02-03",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2027-01-22",
+    "purpose": "Integration planning at the Vancouver branch",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "BUSINESS",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": [
+      "Org chart on file: the Chief Financial Officer reports to the President and CEO.",
+      "The customer, Coastal Fiber's CIO, has booked business on the Air Canada flight."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "JFK",
+        "destination": "YVR",
+        "date": "2027-02-03",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ac": {
+            "carrier": "AC",
+            "depart": "08:45",
+            "minutes": [
+              350
+            ]
+          },
+          "dl": {
+            "carrier": "DL",
+            "depart": "17:20",
+            "minutes": [
+              355
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 38900
+          },
+          {
+            "slot": "ac-business",
+            "flight": "ac",
+            "cabin": "BUSINESS",
+            "fare_cents": 118000
+          },
+          {
+            "slot": "dl-economy",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          },
+          {
+            "slot": "dl-business",
+            "flight": "dl",
+            "cabin": "BUSINESS",
+            "fare_cents": 126000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ac-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "SAME_CLASS_AS_CUSTOMER"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    },
+    {
+      "lines": [
+        311,
+        311
+      ],
+      "sha256": "3e8f837a95c2c31d53d518df20520fa72963bb3433d18dfae3335ef85f0c5dbf",
+      "quote": "When traveling with customers, employees may use the same class of service as the customer",
+      "why": "the customer instance"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "International and over five hours (350), so 302-303 do not force coach; U.S. to Canada does not qualify under 307-308, but the customer instance (311) does: business. Flag twin of gorse-inlet."
+}

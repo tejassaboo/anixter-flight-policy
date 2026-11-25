@@ -1,0 +1,16 @@
+{
+  "id": "anixter-flight-policy",
+  "name": "Anixter Global Travel Flight Policy",
+  "slug": "anixter",
+  "title": "Anixter Global Travel, Entertainment & Expense Policy, revised March 24, 2014",
+  "frozen_file": "anixter_policy.txt",
+  "sha256": "21b7c1d066d168c45dd6c85c9b525094f744dd05f20fc8887ec4472eaaf10c56",
+  "raw_pdf_sha256": "d6ac429a99d7e4ccb8462b483144811d2a1e8b25a175f119d8b760045c07eb97",
+  "words": 11717,
+  "lines": 994,
+  "source": "https://corpapps.anixter.com/DocLib1/R7699UNJ/$file/Anixter_Global_Travel_Policy.pdf?openelement=",
+  "frozen_on": "2026-11-24",
+  "scenario_count": 32,
+  "currency": "USD",
+  "background_offers": 3
+}

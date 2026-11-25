@@ -1,0 +1,142 @@
+{
+  "id": "mossy-weir",
+  "category": "boundary_twin",
+  "overlays": [
+    "date_arithmetic",
+    "outside_air_section",
+    "dearer_option"
+  ],
+  "twin_of": "lark-gully",
+  "twin_fact": "Saturday-return fare 40000 or 42000 cents (saving 34000 or 32000 against 33000)",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm in Denver Monday to Thursday, February 8 to 11, for the security-products training. If I fly back Saturday the 13th instead the fare drops a lot. Book the Saturday return if the company will cover the extra two nights; otherwise the Thursday return.",
+  "trip": {
+    "traveller_name": "Sofia Lindqvist",
+    "traveller_title": "Technical Sales Specialist",
+    "traveller_reports_to": "Sales Manager, New England",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "BOS",
+    "destination": "DEN",
+    "travel_date": "2027-02-08",
+    "return_date": "2027-02-13",
+    "business_return_date": "2027-02-11",
+    "extra_days": "LATER_RETURN_FOR_FARE",
+    "extra_days_cost_cents": 33000,
+    "booking_date": "2026-12-04",
+    "purpose": "Security-products technical training in Denver",
+    "purpose_kind": "TRAINING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [
+      {
+        "approver_name": "Greg Olsen",
+        "approver_title": "Sales Manager, New England",
+        "approver_reports_to": "Regional Vice President, East",
+        "subject": "LATER_RETURN",
+        "in_writing": true,
+        "given_on": "2026-12-03"
+      }
+    ],
+    "notes": [
+      "Two extra hotel nights at 140 USD and meals at 25 USD a day would be claimed."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "first",
+        "origin": "BOS",
+        "destination": "DEN",
+        "date": "2027-02-08",
+        "return_date": "2027-02-11",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "08:25",
+            "return": {
+              "depart": "17:10"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-first",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 74000
+          }
+        ]
+      },
+      {
+        "name": "later",
+        "origin": "BOS",
+        "destination": "DEN",
+        "date": "2027-02-08",
+        "return_date": "2027-02-13",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "08:25",
+            "return": {
+              "depart": "12:40"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-later",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 42000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-first"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "EXTENDED_TRAVEL_NOT_OFFSET"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "MANAGER",
+      "NONE"
+    ],
+    "clauses": [
+      "EXTENDED_TRAVEL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        446,
+        450
+      ],
+      "sha256": "83e142811120c73da2a4a15680635e1aeb14ca46c584ce0866fcf1db79100e82",
+      "quote": "An employee may be reimbursed for business expenses incurred as the result of departing earlier or staying later. Such extended travel must:  Be approved in advance by the employee's manager.  Qualify the employee for a savings in airfare that offsets the added expense.  Apply only to travel originally scheduled for less than six days.",
+      "why": "the three conditions for extended travel"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Saving 32000 cents of airfare against 33000 cents added: it does not offset the added expense (449), so the Thursday return."
+}

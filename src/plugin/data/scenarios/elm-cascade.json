@@ -1,0 +1,146 @@
+{
+  "id": "elm-cascade",
+  "category": "easy",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Business class to Frankfurt on December 15, please, for the European logistics review.",
+  "trip": {
+    "traveller_name": "Priya Nair",
+    "traveller_title": "Director, Supply Chain",
+    "traveller_reports_to": "Vice President, Operations Canada",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Canada Inc.",
+    "home_country": "CA",
+    "origin": "YYZ",
+    "destination": "FRA",
+    "travel_date": "2026-12-15",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "European logistics review in Frankfurt",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "YYZ",
+        "destination": "FRA",
+        "date": "2026-12-15",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ac": {
+            "carrier": "AC",
+            "depart": "17:45",
+            "minutes": [
+              470
+            ]
+          },
+          "lh": {
+            "carrier": "LH",
+            "depart": "20:00",
+            "minutes": [
+              480
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 92000
+          },
+          {
+            "slot": "ac-business",
+            "flight": "ac",
+            "cabin": "BUSINESS",
+            "fare_cents": 455000
+          },
+          {
+            "slot": "lh-economy",
+            "flight": "lh",
+            "cabin": "ECONOMY",
+            "fare_cents": 98000
+          },
+          {
+            "slot": "lh-business",
+            "flight": "lh",
+            "cabin": "BUSINESS",
+            "fare_cents": 470000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ac-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "INTERNATIONAL_LONG_FLIGHT"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "A Canadian employee on a 470-minute international nonstop: business allowed (307); the cheaper business fare."
+}

@@ -1,0 +1,119 @@
+{
+  "id": "dahlia-glen",
+  "category": "refusal",
+  "overlays": [
+    "personal_travel"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "My mother has been taken into hospital in Phoenix. Please book me on the first flight on December 5; I'll work remotely from there.",
+  "trip": {
+    "traveller_name": "Maya Ortiz",
+    "traveller_title": "Credit Analyst",
+    "traveller_reports_to": "Credit Manager",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "PHX",
+    "travel_date": "2026-12-05",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-04",
+    "purpose": "Visiting the traveller's mother in hospital",
+    "purpose_kind": "PERSONAL",
+    "trip_authorized_by": "",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ORD",
+        "destination": "PHX",
+        "date": "2026-12-05",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "aa": {
+            "carrier": "AA",
+            "depart": "06:20"
+          },
+          "wn": {
+            "carrier": "WN",
+            "depart": "09:05"
+          }
+        },
+        "offers": [
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 35400
+          },
+          {
+            "slot": "wn-economy",
+            "flight": "wn",
+            "cabin": "ECONOMY",
+            "fare_cents": 33900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "OUTSIDE_POLICY_SCOPE",
+      "PERSONAL_TRAVEL_NOT_COVERED"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "COMBINED_TRAVEL",
+      "INTRODUCTION",
+      "POLICY_OVERVIEW"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        46,
+        47
+      ],
+      "sha256": "eb7e297a5942ce9c2857e6dc1559d1316f5e85391bb60697654292767b4b1871",
+      "quote": "Anixter will fully reimburse employees for all business-related travel and entertainment expenses up to specified limits",
+      "why": "reimbursement covers business travel"
+    },
+    {
+      "lines": [
+        85,
+        86
+      ],
+      "sha256": "5d885b14c774cb2fd48cce10779f7dd3cb26f53e218b87c718e58c09de534e04",
+      "quote": "The Company's intent is to fully reimburse employees for all legitimate and authorized business travel expenses up to specified limits.",
+      "why": "legitimate business travel only"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "A family visit is not business travel (46-47, 85-86); the handbook has no family-emergency travel rule: no ticket."
+}

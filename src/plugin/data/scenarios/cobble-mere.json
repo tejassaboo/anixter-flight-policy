@@ -1,0 +1,128 @@
+{
+  "id": "cobble-mere",
+  "category": "refusal",
+  "overlays": [
+    "personal_travel"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "The Denver customer meeting on January 21 got cancelled, but I'd still like to go and spend the days skiing. Can you book the flight as planned?",
+  "trip": {
+    "traveller_name": "Kyle Benson",
+    "traveller_title": "Account Executive",
+    "traveller_reports_to": "Sales Manager, Midwest",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "DEN",
+    "travel_date": "2027-01-21",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-10",
+    "purpose": "The customer meeting was cancelled; the traveller wants to go skiing",
+    "purpose_kind": "PERSONAL",
+    "trip_authorized_by": "",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ORD",
+        "destination": "DEN",
+        "date": "2027-01-21",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "08:40"
+          },
+          "wn": {
+            "carrier": "WN",
+            "depart": "11:10"
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 23300
+          },
+          {
+            "slot": "wn-economy",
+            "flight": "wn",
+            "cabin": "ECONOMY",
+            "fare_cents": 21900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "OUTSIDE_POLICY_SCOPE",
+      "PERSONAL_TRAVEL_NOT_COVERED"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "COMBINED_TRAVEL",
+      "INTRODUCTION",
+      "POLICY_OVERVIEW"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        46,
+        47
+      ],
+      "sha256": "eb7e297a5942ce9c2857e6dc1559d1316f5e85391bb60697654292767b4b1871",
+      "quote": "Anixter will fully reimburse employees for all business-related travel and entertainment expenses up to specified limits",
+      "why": "reimbursement covers business travel"
+    },
+    {
+      "lines": [
+        85,
+        86
+      ],
+      "sha256": "5d885b14c774cb2fd48cce10779f7dd3cb26f53e218b87c718e58c09de534e04",
+      "quote": "The Company's intent is to fully reimburse employees for all legitimate and authorized business travel expenses up to specified limits.",
+      "why": "legitimate business travel only"
+    },
+    {
+      "lines": [
+        463,
+        468
+      ],
+      "sha256": "2f292cdc11a6438d484b0d19cc05f93339e47adb6d025c738c1f6312df9bccd6",
+      "quote": "Personal/vacation travel may be combined with business travel if 1) business travel is deemed necessary, 2) work can be completed as planned and is not impacted by personal travel, and 3) there is no additional cost to the company. The company will not pay for personal expenses including, but not limited to, additional meals or lodging costs, tours, or souvenirs. If combining business and personal travel, the expense reimbursement details must be approved by the employee's manager prior to travel.",
+      "why": "personal days only at no additional cost, details approved by the manager"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "No business left: reimbursement covers business-related travel (46-47, 85-86); personal travel only combined with necessary business travel (463): no ticket."
+}

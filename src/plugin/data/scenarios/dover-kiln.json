@@ -1,0 +1,152 @@
+{
+  "id": "dover-kiln",
+  "category": "easy",
+  "overlays": [
+    "multi_traveller",
+    "upgrade_not_taken"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm flying to San Francisco on December 8 with our customer from Pacific Datacom for their site survey. Can you put me in business?",
+  "trip": {
+    "traveller_name": "Luis Moreno",
+    "traveller_title": "Account Manager",
+    "traveller_reports_to": "Branch Manager",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "SFO",
+    "travel_date": "2026-12-08",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "Site survey with the customer Pacific Datacom",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "ECONOMY",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": [
+      "The customer has booked economy on the same United flight."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ORD",
+        "destination": "SFO",
+        "date": "2026-12-08",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "08:00",
+            "minutes": [
+              270
+            ]
+          },
+          "aa": {
+            "carrier": "AA",
+            "depart": "11:00",
+            "minutes": [
+              275
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 31200
+          },
+          {
+            "slot": "ua-business",
+            "flight": "ua",
+            "cabin": "BUSINESS",
+            "fare_cents": 98000
+          },
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 33800
+          },
+          {
+            "slot": "aa-business",
+            "flight": "aa",
+            "cabin": "BUSINESS",
+            "fare_cents": 104000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "DOMESTIC_COACH_ONLY",
+      "LONG_FLIGHT_CONDITION_NOT_MET",
+      "SAME_CLASS_AS_CUSTOMER",
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        311,
+        311
+      ],
+      "sha256": "3e8f837a95c2c31d53d518df20520fa72963bb3433d18dfae3335ef85f0c5dbf",
+      "quote": "When traveling with customers, employees may use the same class of service as the customer",
+      "why": "the customer instance"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Domestic, 270 minutes: coach (302-303); the customer flies economy, so the customer instance (311) gives economy too. Every reading gives economy. Flag twin of gorse-inlet."
+}

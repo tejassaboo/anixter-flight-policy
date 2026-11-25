@@ -1,0 +1,148 @@
+{
+  "id": "zinnia-loch",
+  "category": "distractor",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Book me on United to Chicago on December 16, please. I'm close to the next status level and need the miles.",
+  "trip": {
+    "traveller_name": "Amy Castillo",
+    "traveller_title": "Product Manager",
+    "traveller_reports_to": "Director, Product Management",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "BOS",
+    "destination": "ORD",
+    "travel_date": "2026-12-16",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "Product planning meeting at headquarters",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "United Airlines",
+    "requested_airline_why": "to reach the next frequent-flyer status level",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "BOS",
+        "destination": "ORD",
+        "date": "2026-12-16",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "aa": {
+            "carrier": "AA",
+            "depart": "07:50"
+          },
+          "b6": {
+            "carrier": "B6",
+            "depart": "10:15"
+          },
+          "ua": {
+            "carrier": "UA",
+            "depart": "12:40"
+          }
+        },
+        "offers": [
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 32200
+          },
+          {
+            "slot": "b6-economy",
+            "flight": "b6",
+            "cabin": "ECONOMY",
+            "fare_cents": 35800
+          },
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "aa-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE",
+      "LOYALTY_PROGRAM_PREFERENCE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "FREQUENT_FLYER",
+      "NON_REFUNDABLE_TICKETS",
+      "TRAVELER_REQUIREMENTS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        107,
+        108
+      ],
+      "sha256": "519725fa87e53dfd06a1e392707c86ee2f821f18f9998d2ec9739bd34e1ed250",
+      "quote": "Do not select airlines with higher airfares solely for the purpose of accruing frequent-flyer miles.",
+      "why": "no dearer airline for miles"
+    },
+    {
+      "lines": [
+        341,
+        342
+      ],
+      "sha256": "f7b6c8149a9df100a9528765fce09fd5496dab0e42a8980a958a360ea8665364",
+      "quote": "provided they do not request a particular airline or routing that is to Anixter's economic disadvantage in order to accumulate additional mileage",
+      "why": "no costlier airline for mileage"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        341,
+        341
+      ],
+      "quote": "Employees may accrue mileage from airline frequent flyer programs for their individual use",
+      "why": "miles may be earned, but not by buying a dearer ticket"
+    }
+  ],
+  "design_notes": "United is 9000 cents dearer and asked for only for miles (108, 341-342): the lowest fare (313)."
+}

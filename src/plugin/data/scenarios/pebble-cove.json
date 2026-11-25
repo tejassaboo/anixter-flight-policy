@@ -1,0 +1,147 @@
+{
+  "id": "pebble-cove",
+  "category": "multi_rule",
+  "overlays": [
+    "upgrade_not_taken"
+  ],
+  "twin_of": "quill-meadow",
+  "twin_fact": "leaves from Seattle (U.S.) or Vancouver (Canada)",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Business class to Mexico City on January 20, please. I'm meeting the Grupo Electro team.",
+  "trip": {
+    "traveller_name": "Brian Kessler",
+    "traveller_title": "Director, Latin America Accounts",
+    "traveller_reports_to": "Vice President, Americas Sales",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "SEA",
+    "destination": "MEX",
+    "travel_date": "2027-01-20",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-02",
+    "purpose": "Account review with Grupo Electro",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "SEA",
+        "destination": "MEX",
+        "date": "2027-01-20",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "as": {
+            "carrier": "AS",
+            "depart": "07:30",
+            "minutes": [
+              330
+            ]
+          },
+          "am": {
+            "carrier": "AM",
+            "depart": "12:10",
+            "minutes": [
+              335
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "as-economy",
+            "flight": "as",
+            "cabin": "ECONOMY",
+            "fare_cents": 41800
+          },
+          {
+            "slot": "as-business",
+            "flight": "as",
+            "cabin": "BUSINESS",
+            "fare_cents": 129000
+          },
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 44200
+          },
+          {
+            "slot": "am-business",
+            "flight": "am",
+            "cabin": "BUSINESS",
+            "fare_cents": 136000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "as-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UPGRADE_NOT_ELIGIBLE",
+      "US_ORIGIN_CANADA_MEXICO_CARIBBEAN"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "International and over five hours (330), so 302-303 do not force coach, but a U.S.-originating flight to Mexico does not qualify (308); no other instance: coach."
+}

@@ -1,0 +1,13 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "One flight request, a real global distributor's travel policy: book it, refuse it, or hold it for sign-off"
+summary: "An agent handles one traveller's flight request under Anixter's Global Travel, Entertainment & Expense Policy (revised March 24, 2014), read verbatim (about 11,700 words). It reads the trip record, searches a simulated flight world (real airports and airlines, synthetic schedules and fares in US dollars) and submits a decision with the offer, cabin, reason, approver and handbook section. A deterministic verifier rebuilds the offers and the handbook's answer itself and checks every field. Thirty-two cases cover flying time on both sides of five hours, per flight and in total, the U.S.-to-Canada-and-Mexico exclusion, who counts as a senior executive, self-approval, flying with customers, ticketing beyond, staying later for a cheaper fare, vacation days added to a trip, companions, preferred and loyalty airlines, and the handbook's own unclear words."
+highlights:
+  - "The verbatim handbook: no paraphrase, no rules restated in the task"
+  - "Exact boundaries: 300 against 301 flying minutes, trips 4 or 6 days apart, a fare equal or 500 cents dearer"
+  - "Unclear clauses become holds for approval, each once, with clear twins on both sides"
+  - "Fully offline: a hash-seeded flight world with unguessable offer ids"
+steps:
+  - "Name a case, for example birch-lagoon, with the traveller's request"
+  - "The agent reads the trip record and searches flights on each route and date it needs"
+  - "It submits BOOK, REFUSE or FLAG_FOR_APPROVAL with the offer, cabin, reason, approver and section"
+  - "The verifier recomputes the handbook's answer and checks every field"

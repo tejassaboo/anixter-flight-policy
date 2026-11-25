@@ -1,0 +1,154 @@
+{
+  "id": "vesper-dale",
+  "category": "hidden_clause",
+  "overlays": [
+    "multi_leg",
+    "dearer_option",
+    "synonym"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Book me the hidden-city fare: Chicago to Salt Lake City through Denver on January 14 is $171, and I'll just get off in Denver for the meeting. The nonstop to Denver is $268.",
+  "trip": {
+    "traveller_name": "Jared Mills",
+    "traveller_title": "Inside Sales Representative",
+    "traveller_reports_to": "Inside Sales Manager",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "DEN",
+    "travel_date": "2027-01-14",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-08",
+    "purpose": "Customer meeting in Denver",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "SLC",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "denver",
+        "origin": "ORD",
+        "destination": "DEN",
+        "date": "2027-01-14",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "09:10"
+          },
+          "wn": {
+            "carrier": "WN",
+            "depart": "13:25"
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-denver",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 26800
+          },
+          {
+            "slot": "wn-denver",
+            "flight": "wn",
+            "cabin": "ECONOMY",
+            "fare_cents": 28900
+          }
+        ]
+      },
+      {
+        "name": "beyond",
+        "origin": "ORD",
+        "destination": "SLC",
+        "date": "2027-01-14",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "ua-via": {
+            "carrier": "UA",
+            "depart": "09:10",
+            "via": [
+              "DEN"
+            ],
+            "minutes": [
+              155,
+              95
+            ],
+            "layovers": [
+              70
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-beyond",
+            "flight": "ua-via",
+            "cabin": "ECONOMY",
+            "fare_cents": 17100
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-denver"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "CREATIVE_TICKETING",
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CREATIVE_TICKETING"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        346,
+        348
+      ],
+      "sha256": "a19ce5b638bf937783a9215cabfd08a6a36afe9185d150e394e7a4eebba41e7e",
+      "quote": "Practices deemed unallowable by the airlines, such as \"back-to-back ticketing\" (purchasing two round trip tickets with the intent of using the departure from one ticket and the return from the other) or \"ticketing beyond\" (purchasing a less expensive ticket with the intent of getting off in a connecting city, not the booked destination) are not allowed by Anixter.",
+      "why": "ticketing beyond is not allowed"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        292,
+        292
+      ],
+      "quote": "One-stop or connecting flights",
+      "why": "a cheaper connection is suggested, not ticketing beyond"
+    }
+  ],
+  "design_notes": "'Hidden-city' is the handbook's 'ticketing beyond' (347-348): not allowed; the lowest fare to Denver, where the meeting is."
+}

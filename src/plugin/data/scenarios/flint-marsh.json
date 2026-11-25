@@ -1,0 +1,146 @@
+{
+  "id": "flint-marsh",
+  "category": "easy",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm going to Tokyo on January 12 for the APAC distributor meeting. Just book the cheapest fare you can find.",
+  "trip": {
+    "traveller_name": "Kevin Cho",
+    "traveller_title": "Regional Marketing Manager",
+    "traveller_reports_to": "Director, APAC Marketing",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "SFO",
+    "destination": "NRT",
+    "travel_date": "2027-01-12",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "APAC distributor meeting in Tokyo",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "SFO",
+        "destination": "NRT",
+        "date": "2027-01-12",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "11:20",
+            "minutes": [
+              660
+            ]
+          },
+          "jl": {
+            "carrier": "JL",
+            "depart": "13:05",
+            "minutes": [
+              655
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 89000
+          },
+          {
+            "slot": "ua-business",
+            "flight": "ua",
+            "cabin": "BUSINESS",
+            "fare_cents": 610000
+          },
+          {
+            "slot": "jl-economy",
+            "flight": "jl",
+            "cabin": "ECONOMY",
+            "fare_cents": 94000
+          },
+          {
+            "slot": "jl-business",
+            "flight": "jl",
+            "cabin": "BUSINESS",
+            "fare_cents": 640000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE",
+      "LOWEST_LOGICAL_AIRFARE",
+      "NON_REFUNDABLE_TICKETS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        304,
+        305
+      ],
+      "quote": "Every employee should use good judgment when choosing to travel Business Class.",
+      "why": "advice, not a condition"
+    }
+  ],
+  "design_notes": "Business would be allowed (307) but is not asked for: 'may use' (306) is a permission; the lowest fare (313)."
+}

@@ -1,0 +1,146 @@
+{
+  "id": "ember-shoal",
+  "category": "flag",
+  "overlays": [
+    "multi_leg",
+    "unclear_phrase"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [
+    "ivory-brook",
+    "yarrow-tarn"
+  ],
+  "ambiguity_note": {
+    "phrase": "all flights with a duration of five hours or less of flying time",
+    "readings": [
+      "Each flight of the connection is a flight of five hours or less, so lines 302-303 require coach for it: economy.",
+      "Line 307 measures 'the total flying time ... excluding layover time' of an international itinerary, 565 minutes here, so business qualifies: business."
+    ]
+  },
+  "request": "Business class to Bogota on January 19, please, for the Andean distributor launch. It's the Mexico City connection.",
+  "trip": {
+    "traveller_name": "Marc Gagnon",
+    "traveller_title": "Director, Channel Sales",
+    "traveller_reports_to": "Vice President, Sales Canada",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Canada Inc.",
+    "home_country": "CA",
+    "origin": "YYZ",
+    "destination": "BOG",
+    "travel_date": "2027-01-19",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-02",
+    "purpose": "Andean distributor launch in Bogota",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "YYZ",
+        "destination": "BOG",
+        "date": "2027-01-19",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "am": {
+            "carrier": "AM",
+            "depart": "07:20",
+            "via": [
+              "MEX"
+            ],
+            "minutes": [
+              290,
+              275
+            ],
+            "layovers": [
+              85
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 61000
+          },
+          {
+            "slot": "am-business",
+            "flight": "am",
+            "cabin": "BUSINESS",
+            "fare_cents": 189000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "am-business",
+      "am-economy"
+    ],
+    "cabins": [
+      "BUSINESS",
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UNCLEAR_POLICY_TEXT"
+    ],
+    "approvers": [
+      "NOT_NAMED",
+      "SENIOR_EXECUTIVE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE"
+    ],
+    "unclear_phrase": "all flights with a duration of five hours or less of flying time"
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Two international flights of 290 and 275 minutes: 565 minutes of flying time without the layover. Each flight is five hours or less (302-303: coach); the itinerary's total flying time exceeds five hours (307: business). No order is given."
+}

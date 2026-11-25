@@ -1,0 +1,130 @@
+{
+  "id": "garnet-rill",
+  "category": "easy",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Book me economy to Atlanta on December 10 for the quarterly branch review, please.",
+  "trip": {
+    "traveller_name": "Dana Whitfield",
+    "traveller_title": "Branch Operations Manager",
+    "traveller_reports_to": "Regional Operations Director",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "DFW",
+    "destination": "ATL",
+    "travel_date": "2026-12-10",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "Quarterly branch review in Atlanta",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "DFW",
+        "destination": "ATL",
+        "date": "2026-12-10",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "aa-early": {
+            "carrier": "AA",
+            "depart": "06:30"
+          },
+          "dl": {
+            "carrier": "DL",
+            "depart": "09:15"
+          },
+          "aa-noon": {
+            "carrier": "AA",
+            "depart": "13:40"
+          }
+        },
+        "offers": [
+          {
+            "slot": "early-economy",
+            "flight": "aa-early",
+            "cabin": "ECONOMY",
+            "fare_cents": 18900,
+            "seats": false
+          },
+          {
+            "slot": "dl-economy",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 20400
+          },
+          {
+            "slot": "noon-economy",
+            "flight": "aa-noon",
+            "cabin": "ECONOMY",
+            "fare_cents": 22900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "dl-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE",
+      "LOWEST_LOGICAL_AIRFARE",
+      "NON_REFUNDABLE_TICKETS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        302,
+        303
+      ],
+      "sha256": "1750c231cf8db417717b290b20b1caf45c7ec0d4c75669ede9279f0362631b51",
+      "quote": "Domestic flights and all flights with a duration of five hours or less of flying time must be booked in Coach Class.",
+      "why": "coach for domestic flights and flights of five hours or less"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The cheapest listed fare is sold out, so the lowest fare that can be bought (313)."
+}

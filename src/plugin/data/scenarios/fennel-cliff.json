@@ -1,0 +1,200 @@
+{
+  "id": "fennel-cliff",
+  "category": "flag",
+  "overlays": [
+    "unclear_phrase",
+    "outside_air_section"
+  ],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [
+    "raven-ford",
+    "sable-heath"
+  ],
+  "ambiguity_note": {
+    "phrase": "senior executive",
+    "readings": [
+      "Lines 57-58 ('any Vice President reporting to the CEO or CFO') and 165 ('their Vice President direct reports'): the Vice President, Treasury qualifies, so business.",
+      "Line 58 ('Documented Executive VP approval') and line 554 ('the President and CEO and his direct reports'; anyone below is 'one level below'): he does not, so economy."
+    ]
+  },
+  "request": "Business class to Vancouver on February 3, please. Paul Brandt, our VP of Treasury, signed off on it in writing.",
+  "trip": {
+    "traveller_name": "Nora Feld",
+    "traveller_title": "Director, Canadian Integration",
+    "traveller_reports_to": "Vice President, Corporate Development",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "JFK",
+    "destination": "YVR",
+    "travel_date": "2027-02-03",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2027-01-22",
+    "purpose": "Integration planning at the Vancouver branch",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "BUSINESS",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [
+      {
+        "approver_name": "Paul Brandt",
+        "approver_title": "Vice President, Treasury",
+        "approver_reports_to": "Chief Financial Officer",
+        "subject": "BUSINESS_CABIN",
+        "in_writing": true,
+        "given_on": "2027-01-20"
+      }
+    ],
+    "notes": [
+      "Org chart on file: the Chief Financial Officer reports to the President and CEO."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "JFK",
+        "destination": "YVR",
+        "date": "2027-02-03",
+        "return_date": "",
+        "background": 0,
+        "flights": {
+          "ac": {
+            "carrier": "AC",
+            "depart": "08:45",
+            "minutes": [
+              350
+            ]
+          },
+          "dl": {
+            "carrier": "DL",
+            "depart": "17:20",
+            "minutes": [
+              355
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "ac-economy",
+            "flight": "ac",
+            "cabin": "ECONOMY",
+            "fare_cents": 38900
+          },
+          {
+            "slot": "ac-business",
+            "flight": "ac",
+            "cabin": "BUSINESS",
+            "fare_cents": 118000
+          },
+          {
+            "slot": "dl-economy",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          },
+          {
+            "slot": "dl-business",
+            "flight": "dl",
+            "cabin": "BUSINESS",
+            "fare_cents": 126000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "ac-business",
+      "ac-economy"
+    ],
+    "cabins": [
+      "BUSINESS",
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UNCLEAR_POLICY_TEXT"
+    ],
+    "approvers": [
+      "EXECUTIVE_VP",
+      "NOT_NAMED",
+      "SENIOR_EXECUTIVE"
+    ],
+    "clauses": [
+      "CLASS_OF_SERVICE",
+      "GIFTS",
+      "INTRODUCTION",
+      "SENIOR_EXECUTIVE_APPROVAL"
+    ],
+    "unclear_phrase": "senior executive"
+  },
+  "must_keep": [
+    {
+      "lines": [
+        306,
+        306
+      ],
+      "sha256": "6065f509690640977e774d9b658be92f31fb1b09ee440fade038bc6789fda5e8",
+      "quote": "Employees may use Business Class only in the following instances:",
+      "why": "business only in the listed instances"
+    },
+    {
+      "lines": [
+        307,
+        308
+      ],
+      "sha256": "c81b71e96948e7d2eaa00f515dbedfa2b6b5d3db627b8fe2ea0809f289753dc4",
+      "quote": "International flights when the total flying time exceeds five hours, excluding layover time (U.S. originating flights to Canada, Mexico and the Caribbean do not qualify for Business Class)",
+      "why": "the international flying-time instance and its exclusion"
+    },
+    {
+      "lines": [
+        310,
+        310
+      ],
+      "sha256": "a677d75bfb47febc47be298445f86477bc169146c95358b984cc04e1da6b4ba5",
+      "quote": "When a senior executive has given prior written approval",
+      "why": "the sign-off instance"
+    },
+    {
+      "lines": [
+        57,
+        59
+      ],
+      "sha256": "4ce647d45d4b09a21aa1aae246d789825de2d2a53be3727577b23bbc4671a2b0",
+      "quote": "Anixter will not reimburse any spending outside of company policy unless authorized by a senior executive. (A senior executive is defined as any Vice President reporting to the CEO or CFO.) Documented Executive VP approval of any spending exceptions must be included with receipts.",
+      "why": "who is a senior executive (introduction)"
+    },
+    {
+      "lines": [
+        165,
+        166
+      ],
+      "sha256": "e188fe0fb32f889ba522e97fb9ca2c751952018d573eb8e0451877487d38cbed",
+      "quote": "The CEO, CFO, and their Vice President direct reports have the authority to approve expenses above the limits indicated in this policy.",
+      "why": "who may approve above the limits"
+    },
+    {
+      "lines": [
+        554,
+        555
+      ],
+      "sha256": "b3ae7ae1bea56035267e1482faf1ab6e90ce4e016aaa686eeb8dcb97363b3d23",
+      "quote": "\"Senior executive\" is defined as \"the President and CEO and his direct reports.\" Anyone reporting to the direct reports of President and CEO would be defined as one level below.",
+      "why": "who is a senior executive (gifts section)"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Line 310 needs a senior executive's prior written approval. A Vice President reporting to the CFO is one under lines 57-58 and 165, but not an 'Executive VP' (58) nor 'the President and CEO and his direct reports' (554), which puts him one level below."
+}

@@ -1,0 +1,162 @@
+{
+  "id": "aspen-knoll",
+  "category": "distractor",
+  "overlays": [],
+  "twin_of": "",
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Economy to Los Angeles on December 11, please, for the West region sales meeting.",
+  "trip": {
+    "traveller_name": "Derek Hughes",
+    "traveller_title": "Territory Sales Manager",
+    "traveller_reports_to": "Regional Sales Director",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ATL",
+    "destination": "LAX",
+    "travel_date": "2026-12-11",
+    "return_date": "",
+    "business_return_date": "",
+    "extra_days": "NONE",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-01",
+    "purpose": "West region sales meeting",
+    "purpose_kind": "INTERNAL_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [
+      "Delta Air Lines"
+    ],
+    "non_employee_reason": "",
+    "approvals": [],
+    "notes": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "out",
+        "origin": "ATL",
+        "destination": "LAX",
+        "date": "2026-12-11",
+        "return_date": "",
+        "background": 3,
+        "flights": {
+          "aa": {
+            "carrier": "AA",
+            "depart": "06:15"
+          },
+          "dl": {
+            "carrier": "DL",
+            "depart": "09:30"
+          },
+          "ua": {
+            "carrier": "UA",
+            "depart": "11:45",
+            "via": [
+              "DEN"
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "aa-economy",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 38900
+          },
+          {
+            "slot": "dl-economy",
+            "flight": "dl",
+            "cabin": "ECONOMY",
+            "fare_cents": 38900
+          },
+          {
+            "slot": "ua-economy",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 41500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "dl-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE",
+      "PREFERRED_CARRIER_REQUIRED"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "NONE"
+    ],
+    "clauses": [
+      "COMMERCIAL_AIRLINES",
+      "EXPENSE_GUIDELINES",
+      "TRAVELER_REQUIREMENTS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        102,
+        103
+      ],
+      "sha256": "1f035054e751c657eadd00a66c05885b3de7cef6f0101e5ae3d7c47f4dd07f7e",
+      "quote": "Use the preferred airlines, hotels, and car rental providers when possible. If the online booking tool or Travel Agency displays a non-preferred provider with a lower logical option, you may utilize this provider.",
+      "why": "preferred airlines; a non-preferred one only when lower"
+    },
+    {
+      "lines": [
+        107,
+        108
+      ],
+      "sha256": "519725fa87e53dfd06a1e392707c86ee2f821f18f9998d2ec9739bd34e1ed250",
+      "quote": "Use airlines that have reduced-fare agreements with Anixter whenever possible and fares are comparable to other airlines.",
+      "why": "airlines with agreements when fares are comparable"
+    },
+    {
+      "lines": [
+        674,
+        674
+      ],
+      "sha256": "d39e60d6e87dea98fd3f12ba5158e2036450a0999732176314e2193dfd27dcd4",
+      "quote": "Employees must use preferred airlines, hotels, and car rental companies whenever possible.",
+      "why": "preferred airlines (expense reports)"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        102,
+        103
+      ],
+      "quote": "If the online booking tool or Travel Agency displays a non-preferred provider with a lower logical option, you may utilize this provider.",
+      "why": "applies only to a lower fare, not an equal one"
+    }
+  ],
+  "design_notes": "American and Delta sell the same lowest fare; Delta is the preferred airline (102, 107, 674); a non-preferred airline is allowed only with a lower fare (103)."
+}

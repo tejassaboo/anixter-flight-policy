@@ -1,0 +1,177 @@
+{
+  "id": "onyx-grove",
+  "category": "boundary_twin",
+  "overlays": [
+    "personal_travel",
+    "date_arithmetic",
+    "outside_air_section"
+  ],
+  "twin_of": "nectar-bluff",
+  "twin_fact": "lowest fare with the vacation days 41800 or 42300 cents (41800 without)",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I have the San Francisco customer workshops January 25 to 27 and I'd like to stay on for a few vacation days and fly home Sunday the 31st. If that's fine under the policy book the Sunday return; if not, just the 27th.",
+  "trip": {
+    "traveller_name": "Hannah Brooks",
+    "traveller_title": "Solutions Architect",
+    "traveller_reports_to": "Director, Solutions Engineering",
+    "passenger": "EMPLOYEE",
+    "accompanies": "",
+    "employing_company": "Anixter Inc.",
+    "home_country": "US",
+    "origin": "ORD",
+    "destination": "SFO",
+    "travel_date": "2027-01-25",
+    "return_date": "2027-01-31",
+    "business_return_date": "2027-01-27",
+    "extra_days": "PERSONAL_DAYS",
+    "extra_days_cost_cents": 0,
+    "booking_date": "2026-12-07",
+    "purpose": "Customer workshops in San Francisco",
+    "purpose_kind": "CUSTOMER_MEETING",
+    "trip_authorized_by": "verbal OK from the traveller's immediate supervisor",
+    "requested_cabin": "ECONOMY",
+    "requested_airline": "",
+    "requested_airline_why": "",
+    "requested_ticket_to": "",
+    "customer_cabin": "NONE",
+    "preferred_airlines": [],
+    "non_employee_reason": "",
+    "approvals": [
+      {
+        "approver_name": "Victor Lane",
+        "approver_title": "Director, Solutions Engineering",
+        "approver_reports_to": "Vice President, Technology",
+        "subject": "PERSONAL_DAYS",
+        "in_writing": true,
+        "given_on": "2026-12-04"
+      }
+    ],
+    "notes": [
+      "The traveller pays her own hotel and meals for January 28 to 31."
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "plain",
+        "origin": "ORD",
+        "destination": "SFO",
+        "date": "2027-01-25",
+        "return_date": "2027-01-27",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "07:15",
+            "return": {
+              "depart": "18:30"
+            }
+          },
+          "aa": {
+            "carrier": "AA",
+            "depart": "09:50",
+            "return": {
+              "depart": "15:05"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-plain",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 41800
+          },
+          {
+            "slot": "aa-plain",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 44300
+          }
+        ]
+      },
+      {
+        "name": "longer",
+        "origin": "ORD",
+        "destination": "SFO",
+        "date": "2027-01-25",
+        "return_date": "2027-01-31",
+        "background": 3,
+        "flights": {
+          "ua": {
+            "carrier": "UA",
+            "depart": "07:15",
+            "return": {
+              "depart": "13:20"
+            }
+          },
+          "aa": {
+            "carrier": "AA",
+            "depart": "09:50",
+            "return": {
+              "depart": "16:45"
+            }
+          }
+        },
+        "offers": [
+          {
+            "slot": "ua-longer",
+            "flight": "ua",
+            "cabin": "ECONOMY",
+            "fare_cents": 42300
+          },
+          {
+            "slot": "aa-longer",
+            "flight": "aa",
+            "cabin": "ECONOMY",
+            "fare_cents": 43900
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "ua-plain"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "COMBINED_TRIP_ADDED_COST"
+    ],
+    "approvers": [
+      "IMMEDIATE_SUPERVISOR",
+      "MANAGER",
+      "NONE"
+    ],
+    "clauses": [
+      "COMBINED_TRAVEL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        463,
+        468
+      ],
+      "sha256": "2f292cdc11a6438d484b0d19cc05f93339e47adb6d025c738c1f6312df9bccd6",
+      "quote": "Personal/vacation travel may be combined with business travel if 1) business travel is deemed necessary, 2) work can be completed as planned and is not impacted by personal travel, and 3) there is no additional cost to the company. The company will not pay for personal expenses including, but not limited to, additional meals or lodging costs, tours, or souvenirs. If combining business and personal travel, the expense reimbursement details must be approved by the employee's manager prior to travel.",
+      "why": "personal days only at no additional cost, details approved by the manager"
+    },
+    {
+      "lines": [
+        313,
+        313
+      ],
+      "sha256": "b7ab8ce65adc2959706249a230b7349a3a2e85ef42f2494aba8b23dab90ba4e8",
+      "quote": "Travelers are expected to utilize the lowest cost available airfare meeting required departure and arrival times.",
+      "why": "the lowest cost available airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "With the vacation days the lowest fare is 42300 cents against 41800 without: an additional cost (464), so the business dates only."
+}
