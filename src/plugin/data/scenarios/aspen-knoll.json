@@ -100,8 +100,7 @@
       "PREFERRED_CARRIER_REQUIRED"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR",
-      "NONE"
+      "IMMEDIATE_SUPERVISOR"
     ],
     "clauses": [
       "COMMERCIAL_AIRLINES",

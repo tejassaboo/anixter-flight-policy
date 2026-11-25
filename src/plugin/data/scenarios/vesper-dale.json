@@ -121,8 +121,7 @@
       "LOWEST_FARE"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR",
-      "NONE"
+      "IMMEDIATE_SUPERVISOR"
     ],
     "clauses": [
       "CREATIVE_TICKETING"

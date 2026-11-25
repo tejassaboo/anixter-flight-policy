@@ -94,7 +94,9 @@ CFO_TITLE = "Chief Financial Officer"
 NOT_COMPARABLE_PERCENT = 125
 
 LOWEST_CLAUSES = [Clause.CLASS_OF_SERVICE, Clause.LOWEST_LOGICAL_AIRFARE, Clause.NON_REFUNDABLE_TICKETS]
-TRIP_OK = [Approver.NONE, Approver.IMMEDIATE_SUPERVISOR]  # line 50: verbal trip authorization, not a sign-off
+# Line 50: the immediate supervisor's authorization of the trip, on file for every case that books (solve
+# checks it). The booking relies on it, so NONE ("no one's sign-off is involved at all") is not accepted.
+TRIP_OK = [Approver.IMMEDIATE_SUPERVISOR]
 SENIOR = [Approver.SENIOR_EXECUTIVE, Approver.EXECUTIVE_VP]
 MANAGER = [Approver.MANAGER, Approver.IMMEDIATE_SUPERVISOR]
 # A non-employee's ticket with a business purpose turns on a senior executive's sign-off: lines 452-457, the
@@ -223,6 +225,18 @@ def solve(trip, offers, hidden):
     """The answer key for one trip and the offers of every search its scenario pins: the decision, and every
     accepted offer id, cabin, reason, approver and section. ``hidden`` (answer_key_inputs) is unused by this
     handbook."""
+    key = decide(trip, offers, hidden)
+    if key["decision"] == Decision.BOOK and not trip.trip_authorized_by:
+        raise ValueError("a booking without the supervisor's trip authorization (line 50) is not modelled")
+    if key["decision"] == Decision.REFUSE and trip.trip_authorized_by:
+        # A trip authorization on file that the refusal does not use (basil-crag: the employee's own trip): the
+        # refusal relies on no one's sign-off, but readers split on it, so the supervisor is accepted too.
+        key["approvers"] = by_value([*key["approvers"], Approver.IMMEDIATE_SUPERVISOR])
+    return key
+
+
+def decide(trip, offers, hidden):
+    """solve's answer, before the check that a booking rests on a trip authorization on file."""
     if hidden:
         raise ValueError("this handbook's scenarios carry no answer_key_inputs")
     origin, destination = trip.origin.code, trip.destination.code

@@ -160,7 +160,9 @@ def expected(decision, slots, cabins, reasons, approvers, clauses, phrase=""):
             "approvers": sorted(approvers), "clauses": sorted(clauses), "unclear_phrase": phrase}
 
 
-TRIP_OK = ["IMMEDIATE_SUPERVISOR", "NONE"]
+# Every booking relies on the immediate supervisor's trip authorization on file (line 50); NONE ("no one's
+# sign-off is involved at all") is not accepted on a booking.
+TRIP_OK = ["IMMEDIATE_SUPERVISOR"]
 SENIOR = ["EXECUTIVE_VP", "SENIOR_EXECUTIVE"]
 MANAGER = ["IMMEDIATE_SUPERVISOR", "MANAGER"]
 LOW_CLAUSES = ["CLASS_OF_SERVICE", "LOWEST_LOGICAL_AIRFARE", "NON_REFUNDABLE_TICKETS"]
@@ -615,7 +617,7 @@ scenario(
          trip_authorized_by=COMPANION_SUP),
     [search("out", "ORD", "MIA", "2027-03-03", {"aa": fl("AA", "07:30"), "ua": fl("UA", "10:45")},
             [of("aa-economy", "aa", "ECONOMY", 24600), of("ua-economy", "ua", "ECONOMY", 26100)])],
-    expected("REFUSE", [], ["NONE"], ["COMPANION_NOT_AUTHORIZED", "COMPANION_NOT_COVERED"], ["NONE"],
+    expected("REFUSE", [], ["NONE"], ["COMPANION_NOT_AUTHORIZED", "COMPANION_NOT_COVERED"], ["IMMEDIATE_SUPERVISOR", "NONE"],
              ["COMPANION_TRAVEL", "NON_REIMBURSABLE"]),
     [COMPANION, NON_PARTY],
     "No business purpose for the spouse and no authorization (452-457); accompanying travellers who are not "

@@ -105,8 +105,7 @@
       "US_ORIGIN_CANADA_MEXICO_CARIBBEAN"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR",
-      "NONE"
+      "IMMEDIATE_SUPERVISOR"
     ],
     "clauses": [
       "CLASS_OF_SERVICE"

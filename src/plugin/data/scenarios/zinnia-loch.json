@@ -95,8 +95,7 @@
       "LOYALTY_PROGRAM_PREFERENCE"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR",
-      "NONE"
+      "IMMEDIATE_SUPERVISOR"
     ],
     "clauses": [
       "FREQUENT_FLYER",

@@ -107,8 +107,7 @@
       "SAME_CLASS_AS_CUSTOMER"
     ],
     "approvers": [
-      "IMMEDIATE_SUPERVISOR",
-      "NONE"
+      "IMMEDIATE_SUPERVISOR"
     ],
     "clauses": [
       "CLASS_OF_SERVICE"

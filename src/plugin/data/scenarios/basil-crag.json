@@ -87,6 +87,7 @@
       "COMPANION_NOT_COVERED"
     ],
     "approvers": [
+      "IMMEDIATE_SUPERVISOR",
       "NONE"
     ],
     "clauses": [
